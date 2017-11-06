@@ -1,0 +1,61 @@
+    /**constructors and destructor*/
+
+    BST();
+    //Instantiates a new BST
+
+    BST(const BST &bst);
+    //copy constructor
+
+    ~BST();
+    //deallocates the tree memory
+
+    /**access functions*/
+
+    bstdata minimum() const;
+    //returns the minimum value in the BST
+    //pre: !empty()
+
+    bstdata maximum() const;
+    //returns the maximum value in the BST
+    //pre: !empty()
+
+    bool isEmpty() const;
+    //determines whether the BST is empty
+
+    int getSize() const;
+    //returns the size of the tree
+
+    bstdata getRoot() const;
+    //returns the value stored at the root of the BST
+    //pre: !isEmpty()
+
+    int getHeight() const;
+    //returns the height of the tree
+
+    bool search(bstdata data) const;
+    //returns whether the data is found in the tree
+    //pre: !isEmpty()
+
+    /**manipulation procedures*/
+
+    void insert(bstdata data);
+    //inserts new data into the BST
+
+    void remove(bstdata data);
+    //removes the specified value from the tree
+    //pre: data is located in the tree
+    //pre: !isEmpty()
+
+    /**additional functions*/
+
+    void inOrderPrint(/*ostream& out*/) const;
+    //calls the inOrderPrint function to print out the values
+    //stored in the BST
+
+    void preOrderPrint(ostream& out) const;
+    //calls the reOrderPrint function to print out the values
+    //stored in the BST
+
+    void postOrderPrint(ostream& out) const;
+    //calls the postOrderPrint function to print out the values
+    //stored in the BST
