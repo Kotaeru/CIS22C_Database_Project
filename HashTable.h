@@ -29,9 +29,6 @@ public:
     /**Manipulation Procedures*/
 
     void insert(Song S);
-    //inserts a new book into the table
-    //calls the hash function on the key to determine
-    //the correct bucket
 
     void remove(Song S);
 
