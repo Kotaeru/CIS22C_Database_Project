@@ -1,9 +1,3 @@
-/*
- * HashTable.h
- *
- *  Created on: Nov 10, 2017
- *      Author: Maya
- */
 
 #ifndef HASHTABLE_H_
 #define HASHTABLE_H_
