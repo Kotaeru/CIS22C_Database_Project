@@ -1,0 +1,239 @@
+// ~~~ couts/cins ~~~
+// the "cout << "\n\n"" at the end of each screen is my way of visually separating each screen for now
+// NOTE: if I missed something or if I should change something, please let me know
+
+
+// main menu
+
+#include<iostream>
+
+using namespace std;
+
+int main()
+{
+cout << "Welcome!\n\n";
+cout << "1) Search\n2) Add or Delete\n3) Song Statistics\n\n";
+cout << "Enter the number of your choice: ";
+int choice;
+cin >> choice;
+cout << "\n\n";
+if (choice == 1) {
+  // go to search
+} else if (choice == 2) {
+  // go to add/delete menu
+} else if (choice == 3) {
+  // go to song stats
+} else {
+  cout << "That is not a valid input!!";
+  // computer freaks out and spontaneously combusts; also exits
+}
+
+
+// search menu
+cout << "1) Search by Title\n2) Search by Album\n3) Search by Release Date\n4) Search by Lyrics";
+cout << "\n\nEnter the number of your choice: ";
+int choice;
+cin >> choice;
+cout << "\n\n";
+if (choice == 1) {
+  // search by title
+} else if (choice == 2) {
+  // search by album
+} else if (choice == 3) {
+  // search by release date
+} else if (choice == 4) {
+  // search by lyrics
+} else {
+  cout << "That is not a valid input!!";
+  // computer freaks out and spontaneously combusts; also exits
+}
+
+// search screen (be sure to adjust these for each input type if necessary)
+cout << "Enter the title/album/date/lyrics: ";
+string input;
+getline(cin, input);
+cout << "\n\n";
+// search
+cout << "Results for " << input << ":\n";
+cout << "1) "; //<< *SEARCH RESULTS*; **edit later**
+cout << "2) "; //<< *SEARCH RESULTS*; **so on and so forth for the rest**
+cout << "\n\nEnter the number of the song you would like more information on: ";
+int choice;
+cin >> choice;
+cout << "\n\n";
+// begin if/else statements
+
+
+// song info screen
+cout << "Title: "; //<< *TITLE* << "\nAlbum: " << *ALBUM* << "\nRelease Date: " << *RELEASE DATE* << "\nLyrics: " << *LYRICS*;
+cout << "\n\nGo back to main menu? Y/N: ";
+char input;
+cin >> input;
+cout << "\n\n";
+if (input == 'y' || 'Y') {
+  // place call back to main menu
+} else {
+  cout << "Goodbye.";
+  // place quit/exit program
+}
+
+
+// add/delete menu
+cout << "1) Add a new song\n2) Delete an existing song\n\n";
+cout << "Please enter the number of your choice: ";
+int choice;
+cin >> choice;
+cout << "\n\n";
+if (choice == 1) {
+  // go to add menu
+} else if (choice == 2) {
+  // go to delete menu
+} else {
+  cout << "That is not a valid input!!";
+  // freak out and exit program???
+}
+
+// add menu
+string title;
+string album;
+int date;
+string lyrics;
+cout << "Title?: ";
+getline(cin, title);
+cout << "\nAlbum?: ";
+getline(cin, album);
+cout << "\nRelease Date?: ";
+cin >> date;
+cout << "\nLyrics?: ";
+getline(cin, lyrics);
+cout << "\n\n";
+// go to add confirmation screen w/ title, album, date, lyrics
+
+// add confirmation screen
+cout << "Title: "; //<< *TITLE* << "\nAlbum: " << *ALBUM* << "\nRelease Date: " << *RELEASE DATE* << "\nLyrics: " << *LYRICS*;
+cout << "\n\nAre these fields correct? Y/N: ";
+char input;
+cin >> input;
+if (input == 'y' || 'Y') {
+  // go through with the addition
+} else {
+  // go back to add menu or maybe ask first if they want to go back there
+  // exit function
+}
+cout << "\n\nGo back to main menu? Y/N: ";
+cin >> input;
+if (input == 'y' || 'Y') {
+  // go back to the main menu
+} else {
+  cout << "Goodbye.";
+  // place quit/exit program
+}
+cout << "\n\n";
+
+
+// delete menu (currently identical to "search menu"; use same menu?)
+cout << "1) Search by Title\n2) Search by Album\n3) Search by Release Date\n4) Search by Lyrics";
+cout << "\n\nEnter the number of your choice: ";
+int choice;
+cin >> choice;
+if (choice == 1) {
+  // search by title
+} else if (choice == 2) {
+  // search by album
+} else if (choice == 3) {
+  // search by release date
+} else if (choice == 4) {
+  // search by lyrics
+} else {
+  cout << "That is not a valid input!!";
+  // program disappears into nothingness with no trace left behind of its existence; also exits program
+}
+cout << "\n\n";
+
+// delete search screen (currently identical to "search screen"? use same menu)
+cout << "Enter the title/album/date/lyrics: ";
+string input;
+getline(cin, input);
+cout << "\n\n";
+// search
+cout << "Results for (user input):\n";
+// probably gonna want to use a loop for displaying results by #)
+cout << "1) "; //<< *SEARCH RESULTS*; **edit later**
+cout << "2) "; //<< *SEARCH RESULTS*; **so on and so forth for the rest**
+cout << "\n\nEnter the number of the song you would to delete from the list: ";
+int choice;
+cin >> choice;
+cout << "\n\n";
+// if/else statements
+
+// delete confirmation screen
+cout << "Title: "; //<< *TITLE* << "\nAlbum: " << *ALBUM* << "\nRelease Date: " << *RELEASE DATE* << "\nLyrics: " << *LYRICS*;
+cout << "\n\nConfirm deletion? Y/N: ";
+char input;
+cin >> input;
+if (input == 'y' || 'Y') {
+  // go through with the deletion
+} else {
+  // go back to delete menu or maybe ask if they want to go back there
+  // exit function
+}
+cout << "\n\nGo back to main menu? Y/N: ";
+cin >> input;
+if (input == 'Y' || 'y') {
+  // go back to main menu
+} else {
+  // exit program
+}
+cout << "\n\n";
+
+
+// stat search menu (currently identical to "search menu")
+cout << "1) Search by Title\n2) Search by Album\n3) Search by Release Date\n4) Search by Lyrics";
+cout << "\n\nEnter the number of your choice: ";
+int choice;
+cin >> choice;
+if (choice == 1) {
+  // search by title
+} else if (choice == 2) {
+  // search by album
+} else if (choice == 3) {
+  // search by release date
+} else if (choice == 4) {
+  // search by lyrics
+} else {
+  cout << "That is not a valid input!!";
+  // nothing happens; also exits program
+}
+cout << "\n\n";
+
+// stat search screen (currently identical to "search screen")
+cout << "Enter the title/album/date/lyrics: ";
+string input;
+getline(cin, input);
+cout << "\n\n";
+// search
+cout << "Results for (user input):\n";
+cout << "1) "; //<< *SEARCH RESULTS*; //edit later
+cout << "2) "; //<< *SEARCH RESULTS*; //so on and so forth for the rest
+cout << "\n\nEnter the number of the song you would like more information on: ";
+int choice;
+cin >> choice;
+cout << "\n\n";
+// if/else statements
+
+// song stat screen
+//cout << *SONG STATS*;
+//cout << *SONG STATS*;
+//cout << *SONG STATS*;
+//cout << *SONG STATS*;
+//cout << "\n\nGo back to main menu? Y/N: ";
+char input;
+cin >> input;
+if (input == 'Y' || 'y') {
+  // go back to main menu
+} else {
+  // exit program
+}
+cout << "\n\n";
+
+// ~~~ end of couts ~~~
