@@ -1,6 +1,12 @@
 /*
  * Song.h
  *
+ *  Created on: Nov 22, 2017
+ *      Author: Maya
+ */
+/*
+ * Song.h
+ *
  *  Created on: Nov 13, 2017
  *      Author: Kyle
  */
@@ -12,37 +18,33 @@
 #include <ostream>
 using namespace std;
 
-struct date
-	{
-		int month;
-		int day;
-		int year;
-	};
-
 class Song {
 private:
     string songName;
     string songAlbum;
-    date songDate;
-    string lyrics;
+    //date songDate;
+    int year;
+	int month;
+	int day;
+    string songlyrics;
     bool onChart;
     double length;
     int views;
-    int keyHits;
+    //int keyHits;
 
 
 public:
 
 /**Constructors*/
     Song();
-    Song(string songName, string songAlbum, date date, string lyrics, bool onChart, int length, int views, int keyHits);
+    Song(string songTitle, string Album, int y, int m, int d, string lyrics, bool isonChart, int songlength, int songviews);
 
 
 
     /**Access Functions*/
     string getName();
     string getAlbum();
-    date getDate();
+    string getDate();
     string getLyrics();
     bool isOnChart();
     int getLength();
@@ -50,14 +52,17 @@ public:
     int getHits();
 
     /**Manipulation Procedures*/
-    void setName(string songName);
+    void setName(string title);
     void setAlbum(string album);
-    void setDate(date songDate);
-    void setLyrics(string songLyrics);
-    void setCharts(bool onChart);
-    void setLength(int length);
-    void setViews(int views);
-    void setHits(int keyHits);
+   // void setDate(int year, int month, int day);
+    void setYear(int y);
+    void setMonth(int m);
+    void setDay(int d);
+    void setLyrics(string songLyrics1);
+    void setCharts(bool isOnChart);
+    void setLength(int songlength);
+    void setViews(int ytViews);
+    //void setHits(int keyHits);
 
 
 /**Additional Functions*/
