@@ -23,13 +23,13 @@ private:
     string songName;
     string songAlbum;
     //date songDate;
-    int year;
-	int month;
-	int day;
+    string year;
+	string month;
+	string day;
     string songlyrics;
-    bool onChart;
-    double length;
-    int views;
+    string onChart;
+    string length;
+    string views;
     //int keyHits;
 
 
@@ -37,7 +37,7 @@ public:
 
 /**Constructors*/
     Song();
-    Song(string songTitle, string Album, int y, int m, int d, string lyrics, bool isonChart, int songlength, int songviews);
+    Song(string songTitle, string Album, string y, string m, string d, string lyrics, string isonChart, string songlength, string songviews);
 
 
 
@@ -46,10 +46,10 @@ public:
     string getAlbum();
     string getDate();
     string getLyrics();
-    bool isOnChart();
-    int getLength();
-    int getViews();
-    int getHits();
+    string isOnChart();
+    string getLength();
+    string getViews();
+    string getHits();
 
     /**Manipulation Procedures*/
     void setName(string title);

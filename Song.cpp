@@ -19,16 +19,16 @@ Song::Song()
 {
 	songName = "Empty";
 	songAlbum = "Empty";
-	year = 0;
-	month = 0;
-	day = 0;
+	year = "0";
+	month = "0";
+	day = "0";
 	songlyrics = "Empty";
-	onChart = false;
-	length = 0;
-	views = 0;
+	onChart = "false";
+	length = "0";
+	views = "0";
 }
 
-Song::Song(string songTitle, string Album, int y, int m, int d, string lyrics, bool isonChart, int songlength, int songviews) {
+Song::Song(string songTitle, string Album, string y, string m, string d, string lyrics, string isonChart, string songlength, string songviews) {
     songName = songTitle;
     songAlbum = Album;
     year = y;
@@ -54,7 +54,7 @@ string Song::getAlbum() {
 string Song::getDate()
 {
 	stringstream ss;
-	ss << year << "/" << month << "/" << day;
+	ss << month << "/" << day << "/" << year;
 	string dateData = ss.str();
 	return dateData;
 }
@@ -63,13 +63,13 @@ string Song:: getLyrics()
     {return songlyrics;}
 
 
-bool Song:: isOnChart()
+string Song:: isOnChart()
 {return onChart;}
 
- int Song:: getLength()
+ string Song:: getLength()
  {return length;}
 
- int Song:: getViews()
+ string Song:: getViews()
  {return views;}
 
  //int Song:: getHits()

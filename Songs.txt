@@ -1,24 +1,4 @@
-//MJ songs data
-
-Song Title; release date; album; studio(possibly); youtube views; length; did it hit billboard hot 100 or not, the number of times a keyword comes out in the song, lyrics
-
-2 Bad; 
-2,000 Watts
-A Brand New Day
-Another Part Of Me
-Baby Be Mine
-Bad
-Beat It
-Ben
-Billie Jean
-Black Or White
-Blood On The Dancefloor
-Break Of Dawn
-Burn This Disco Out
-Butterflies
-Call On Me
-
-2 Bad; 19950616; HIStory: Past, Present and Future, Book I; Flyte Time Studios; 4:50; 219,501 views; no(did not hit Billboard Top 100); 
+2 Bad;1995;06;16;HIStory: Past, Present and Future, Book I;Flyte Time Studios;4:50;219,501 views;no(did not hit Billboard Top 100); 
 Told me that you're doin' wrong
 Word out shockin' all alone
 Cryin' wolf ain't like a man
@@ -99,9 +79,7 @@ Why don't you scream and shout it
 Too bad too bad about it
 Why don't you just scream and shout it
 Too bad too bad about it;
-
-
-2,000 Watts; 20011031; Invincible; cannot find studio; 78,649 views; no; 
+2,000 Watts;2001;10;31;Invincible;cannot find studio;78,649 views;no; 
 Bass note, treble, stereo control, how low you go
 Just enough to make your juices flow
 Press play, don't stop, rotate, too hot
@@ -122,9 +100,8 @@ Too much of that, fuse blown
 Be careful what you say don't overload
 Two thousand watts, eight ohms, two hundred volts, real strong
 Too much of that, fuse blown
-Be careful what you say don't overload;
- 
-A Brand New Day; 19781024; The Wiz (Original Motion Picture Soundtrack); 2,834 views;  7:48; no; 
+Be careful what you say don't overload; 
+A Brand New Day;1978;10;24;The Wiz (Original Motion Picture Soundtrack);2,834 views;7:48;no; 
 Everybody look around
 'Cause there's a reason to rejoice you see
 Everybody come out
@@ -183,7 +160,7 @@ Can't you feel a brand new day?
 Can't you feel a brand new day?
 Can't you feel a brand new day?;
 
-Another Part Of Me; 19880711; Bad; cannot find studio;11,453 views; 3:55; yes; 
+Another Part Of Me;1988;07;11;Bad;cannot find studio;11,453 views;3:55;yes; 
 We're takin' over
 We have the truth
 This is the mission to see it through
@@ -223,7 +200,7 @@ We're taking over
 This is the truth, baby
 Another part of me;
 
-Baby Be Mine; 19821130; Thriller; Westlake Recording Studios (Los Angeles); 255,833 views; 4:20; no; 
+Baby Be Mine;1982;11;30;Thriller;Westlake Recording Studios (Los Angeles);255,833 views;4:20;no; 
 I don't need no dreams when I'm by your side
 Every moment takes me to paradise
 Darlin', let me hold you
@@ -273,7 +250,7 @@ C'mon, girl, c'mon girl
 So baby, be mine
 You're everything this world could be to me;
  
-Bad; 19870907; Bad; Westlake Recording Studios; 675,711 views; 4:07; yes; 
+Bad;1987;09;07;Bad;Westlake Recording Studios;675,711 views;4:07;yes; 
 Your butt is mine
 Gonna tell you right
 Just show your face
@@ -347,7 +324,8 @@ Answer right now
 Just to tell you once again
 Who's bad
 Who's bad?;
-Beat It; 19830218; Thriller; cannot find studio; 287,084,568 views; 4:58; yes; 
+
+Beat It;1983;02;18;Thriller;cannot find studio;287,084,568 views;4:58;yes; 
 They told him don't you ever come around here
 Don't want to see your face, you better disappear
 The fire's in their eyes and their words are really clear
@@ -400,8 +378,7 @@ Showin' how funky and strong is your fight
 It doesn't matter who's wrong or right
 Just beat it, beat it
 Beat it, beat it, beat it;
-
-Ben; 19720804; Ben; studio not found; 6,807 views; 2:47; yes; 
+Ben;19720804;Ben;studio not found;6,807 views;2:47;yes; 
 Ben, the two of us need look no more
 We both found what we were looking for
 With a friend to call my own
