@@ -22,6 +22,8 @@
 using namespace std;
 
 class HashTable {
+private:
+	Song S;
 public:
     /**Constructors*/
 
@@ -46,19 +48,19 @@ public:
     //returns the count
     //pre: 0<= index < SIZE
 
-    int search(Song b) const;
+    int search(Song s) const;
     //Searches for b in the table
     //returns the index at which b is located
     //returns -1 if b is not in the table
 
     /**Manipulation Procedures*/
 
-    void insert(Song b);
+    void insert(Song s);
     //inserts a new book into the table
     //calls the hash function on the key to determine
     //the correct bucket
 
-    void remove(Song b);
+    void remove(Song s);
     //removes b from the table
     //calls the hash function on the key to determine
     //the correct bucket

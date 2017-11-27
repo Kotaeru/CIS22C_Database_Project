@@ -1,18 +1,14 @@
 #include "HashTable.h"
+#include "Song.h"
 
 #include<iostream>
+
+using namespace std;
 
 
 HashTable::HashTable() //constructor
 {
-/*
-	for(int i = 0; i < SIZE; i++) //fills the hashtable with nodes that contain empty values
-	{
-		//Book tempBook = Book("Empty", "Empty", -1, 0);
-		Table[i].insert(Book("Empty", "Empty", -1, 0));
-	}
 
-*/
 }
 
 HashTable::~HashTable() //constructor
@@ -38,14 +34,14 @@ int HashTable::countBucket(int index) const
 	return Table[index].getSize();
 }
 
-int HashTable::search(Song S) const
+int HashTable::search(Song b) const
 {
-	int index = hash(S.getName());
-	if(Table[index].search(S) == false)
+	int index = hash(b.get_songName());
+	if(Table[index].search(b) == false)
 	{
 		return -1;
 	}
-	else if(Table[index].search(S) == true)
+	else if(Table[index].search(b) == true)
 	{
 		return index;
 	}
@@ -55,27 +51,27 @@ int HashTable::search(Song S) const
 	}
 }
 
-void HashTable::insert(Song S)
+void HashTable::insert(Song s)
 {
-	int index = hash(S.getName());
+	int index = hash(s.get_songName() + s.get_songAlbum());
 
-		Table[index].insert(S);
+		Table[index].insert(s);
 
 }
 
-void HashTable::remove(Song S)
+void HashTable::remove(Song s)
 {
-	int index = hash(S.getName());
+	int index = hash(s.get_songName() + s.get_songAlbum());
 
-		bool found = Table[index].search(S);
+		bool found = Table[index].search(s);
 
 		if(found)
 		{
-			Table[index].remove(S);
+			Table[index].remove(s);
 		}
 		else
 		{
-			cout << "Song is not there";
+			cout << "theSong is not there";
 		}
 }
 
@@ -88,14 +84,11 @@ void HashTable::printTable(ostream &out) const
 {
 	for(int i = 0; i < SIZE; i++)
 	{
-		//Everything commented out here needs to be modified for the song class
 		Song S = Table[i].getRoot();
-		//out << "Books in Catalouge" <<endl <<endl;
-		//out << "Group: " << i+1 << endl;
-		out << S.getName() << " by Michael Jackson" <<endl;
-		//out << "$"  << B.get_price() <<endl;
-		//out << "ISBN: " << B.get_isbn() <<endl;
-		//out << "+ " << Table[i].getSize()-1 << " many more similar books" << endl <<endl;
+		out << "Songs in Catalouge" <<endl <<endl;
+		out << "Group: " << i+1 << endl;
+		out << S.get_songName() << " by " << S.get_songAlbum() <<endl;
+		out << "+ " << Table[i].getSize()-1 << " many more similar Songs" << endl <<endl;
 	}
 }
 

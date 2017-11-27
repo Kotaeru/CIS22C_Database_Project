@@ -18,50 +18,45 @@ using namespace std;
 int main() {
 	BST<Song> bstobj;
 	HashTable HT;
-	char delimiter = ';';
 	ifstream inputfile;
 	Song obj1;
 	string songName;
 	 string songAlbum;
-	 int year;
-	 int month;
-	 int day;
+	 date songDate; // can you just inputfile
 	  string lyrics;
-	  double price;
 	  bool onChart;
 	  double length;
 	  int views;
-	  //int keyHits;
+	  int keyHits;
 	string temp;
-	inputfile.open("catalogue.txt");
+	inputfile.open("songs.txt");
 
-	/*if(inputfile)    //just for me~
+	if(inputfile)    //just for me~
 	{
 		cout <<"successful open";
-	}*/
-
+	}
+	char delimeter(';');
 	while(!inputfile.eof())
 	{
-		getline(inputfile, songName , delimiter);
-		getline(inputfile, songAlbum);
+		getline(inputfile, songName , delimeter);
+		getline(inputfile, songAlbum, delimeter);
 		//cout <<author;
-		inputfile >> year;
-		inputfile >> month;
-		inputfile >> day;
-		inputfile >> price;
-		getline(inputfile, lyrics);
+		inputfile >> songDate.year;
+		inputfile >> songDate.month;
+		inputfile >> songDate.day;
+		getline(inputfile, lyrics, delimeter);
 		inputfile >>onChart;
 		inputfile >> length;
 		inputfile >>views;
-		//inputfile >>keyHits;
+		inputfile >>keyHits;
 		inputfile.ignore();
 		inputfile.ignore();
+//Song::Song(string sn, string sa, date sD,string lyr, bool oC,int len, int viw,int kH)
+		Song s1(songName, songAlbum, songDate, lyrics, onChart, length, views, keyHits); //can call constructor instead of sets field with get
+	//	cout <<s;
 
-		Song S1(songName,songAlbum, year, month, day, lyrics, onChart, length, views); //can call constructor instead of sets field with get
-	//	cout <<b;
-
-		HT.insert(S1);
-		bstobj.insert(S1);
+		HT.insert(s1);
+		bstobj.insert(s1);
 	}
 	//bstobj.inOrderPrint(cout);
 

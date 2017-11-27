@@ -361,7 +361,7 @@ bool BST<bstdata>::searchNode(Node* root, bstdata data)const //private helper of
 		{
 			return searchNode(root->rightchild,data); //only changes if delete is actually used
 		}
-		return false;
+
 	}
 
 template<typename bstdata>
@@ -458,7 +458,7 @@ typename BST<bstdata>::Node* BST<bstdata>::deleteNode(Node* root, bstdata data)/
 									}
 								root->data=leftCurrent->data;
 								delete leftCurrent;
-								leftCurrentPred->leftchild=nullptr;
+								leftCurrentPred->leftchild==nullptr;
 							}
 							else
 							{
