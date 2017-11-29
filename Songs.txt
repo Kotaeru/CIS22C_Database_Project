@@ -1,4 +1,4 @@
-2 Bad;1995;06;16;HIStory: Past, Present and Future, Book I;Flyte Time Studios;4:50;219,501 views;no(did not hit Billboard Top 100); 
+2 Bad;HIStory: Past, Present and Future, Book I;1995;06;16; 
 Told me that you're doin' wrong
 Word out shockin' all alone
 Cryin' wolf ain't like a man
@@ -78,8 +78,9 @@ Too bad too bad about it
 Why don't you scream and shout it
 Too bad too bad about it
 Why don't you just scream and shout it
-Too bad too bad about it;
-2,000 Watts;2001;10;31;Invincible;cannot find studio;78,649 views;no; 
+Too bad too bad about it;false;4:50;219,501;0;
+
+2,000 Watts;Invincible;2001;10;31; 
 Bass note, treble, stereo control, how low you go
 Just enough to make your juices flow
 Press play, don't stop, rotate, too hot
@@ -100,8 +101,9 @@ Too much of that, fuse blown
 Be careful what you say don't overload
 Two thousand watts, eight ohms, two hundred volts, real strong
 Too much of that, fuse blown
-Be careful what you say don't overload; 
-A Brand New Day;1978;10;24;The Wiz (Original Motion Picture Soundtrack);2,834 views;7:48;no; 
+Be careful what you say don't overload;false;4:24;81,648;0; 
+
+A Brand New Day;The Wiz (Original Motion Picture Soundtrack);1978;10;24; 
 Everybody look around
 'Cause there's a reason to rejoice you see
 Everybody come out
@@ -158,9 +160,9 @@ You owe it to yourself to check it out
 Can't you feel a brand new day?
 Can't you feel a brand new day?
 Can't you feel a brand new day?
-Can't you feel a brand new day?;
+Can't you feel a brand new day?;false;7:48;2,834;0;
 
-Another Part Of Me;1988;07;11;Bad;cannot find studio;11,453 views;3:55;yes; 
+Another Part Of Me;Bad;1988;07;11; 
 We're takin' over
 We have the truth
 This is the mission to see it through
@@ -198,9 +200,9 @@ You're just another part of me
 Another part of me
 We're taking over
 This is the truth, baby
-Another part of me;
+Another part of me;true;3:55;11,453;0; 
 
-Baby Be Mine;1982;11;30;Thriller;Westlake Recording Studios (Los Angeles);255,833 views;4:20;no; 
+Baby Be Mine;Thriller;1982;11;30; 
 I don't need no dreams when I'm by your side
 Every moment takes me to paradise
 Darlin', let me hold you
@@ -248,9 +250,9 @@ So baby, be mine, baby, be mine
 You're everything this world could be to me
 C'mon, girl, c'mon girl
 So baby, be mine
-You're everything this world could be to me;
- 
-Bad;1987;09;07;Bad;Westlake Recording Studios;675,711 views;4:07;yes; 
+You're everything this world could be to me;false;4:20;255,833;0; 
+
+Bad;Bad;1987;09;07; 
 Your butt is mine
 Gonna tell you right
 Just show your face
@@ -323,9 +325,9 @@ And the whole world has to
 Answer right now
 Just to tell you once again
 Who's bad
-Who's bad?;
+Who's bad?;true;4:07;675,711;0;
 
-Beat It;1983;02;18;Thriller;cannot find studio;287,084,568 views;4:58;yes; 
+Beat It;Thriller;1983;02;18; 
 They told him don't you ever come around here
 Don't want to see your face, you better disappear
 The fire's in their eyes and their words are really clear
@@ -377,8 +379,9 @@ No one wants to be defeated
 Showin' how funky and strong is your fight
 It doesn't matter who's wrong or right
 Just beat it, beat it
-Beat it, beat it, beat it;
-Ben;19720804;Ben;studio not found;6,807 views;2:47;yes; 
+Beat it, beat it, beat it;true;4:58;287,084,568;0;
+
+Ben;Ben;1972;08;04; 
 Ben, the two of us need look no more
 We both found what we were looking for
 With a friend to call my own
@@ -397,9 +400,9 @@ I wish they would try to'
 I'm sure they'd think again if they had a friend like Ben
 A friend like Ben
 (Like Ben)
-Like Ben;
+Like Ben;true;2:47;6,807;0; 
 
-Billie Jean; 19830102; Thriller; Westlake Audio (Los Angeles); 345,298,606 views; 4:55; yes; 
+Billie Jean;Thriller;1983;01;02; 
 She was more like a beauty queen from a movie scene
 I said don't mind, but what do you mean, I am the one
 Who will dance on the floor in the round
@@ -451,11 +454,9 @@ Billie Jean is not my lover
 Billie Jean is not my lover
 Billie Jean is not my lover (don't Billie Jean)
 Billie Jean is not my lover
-Billie Jean is not my lover;
+Billie Jean is not my lover;true;4:55;345,298,606;0;
 
-
-Black Or White; 19911111; Dangerous; studio not found; 212,198,453 views; 6:22; yes; 
-
+Black Or White;Dangerous;1991;11;11; 
 I took my baby on a Saturday bang
 Boy is that girl with you 
 Yes we're one and the same
@@ -503,9 +504,9 @@ Ooh, ooh
 Yea, yea, yea now
 It's black, it's white
 It's tough for them to get by
-It's black, it's white, (x3) whoo;
+It's black, it's white, (x3) whoo;true;6:22;212,198,453;0;
 
-Blood On The Dancefloor; 19970321; Blood On The Dance Floor - HIStory In The Mix; 38,091,716 views; 4:16; yes; 
+Blood On The Dancefloor;Blood On The Dance Floor - HIStory In The Mix;1997;03;21; 
 She got your number
 She know your game
 She put you under
@@ -582,10 +583,9 @@ It was blood on the dance floor
 (blood on the dance floor)
 And I just can't take it
 The girl won't break it
-Ooo;
+Ooo…;true;4:16;38,091,716;0; 
 
-Break Of Dawn; 20011030; Invincible; Recorded at Various Studios; 355,473 views; 5:33; no;
-
+Break Of Dawn;Invincible;2001;10;30; 
 Hold my hand, feel the touch of your body cling to mine
 You and me, makin' love all the way through another night
 I remember you and I walking though the park at night
@@ -630,9 +630,9 @@ I won't stop 'til break of dawn makin' love
 I don't want the sun to shine I want to make love
 Just this magic in your eyes and in my heart
 I don't know what I'm gonna do I can't stop lovin' you
-I won't stop 'til break of dawn makin' love;
+I won't stop 'til break of dawn makin' love;false;5:33;355,473;0;
 
-Burn This Disco Out; 19790810; Off the Wall; Studio not found; 48,865 views; 3:41; no; 
+Burn This Disco Out;Off the Wall;1979;08;10; 
 There's a steam beat
 And it's comin' after you
 You can take it
@@ -682,9 +682,9 @@ Groove all night
 Keep the boogie alright
 Get that sound
 Everybody just get on down
-Gonna dance, gonna shout, gonna burn this disco out;
- 
-Butterflies; 20011030; Invincible; 302,825 views; 4:40; yes; 
+Gonna dance, gonna shout, gonna burn this disco out;false;3:41;48,865;0;
+
+Butterflies;Invincible;2001;10;30; 
 All you gotta do is walk away and pass me by
 Don't acknowledge my smile when I try to say hello to you, yeah
 And all you gotta do is not answer my calls when
@@ -717,9 +717,9 @@ And I wish that I could be with you tonight
 You give me butterflies inside, inside and I
 I just want to touch and kiss
 And I wish that I could be with you tonight
-You give me butterflies inside, inside and I;
+You give me butterflies inside, inside and I;true;4:40;302,825;0;
 
-Call On Me; 19840515; Farewell My Summer Love; Studio not found; 210 views; 3:39; no; 
+Call On Me;Farewell My Summer Love;1984;05;15;
 There goes the sunshine
 Here comes the rain
 And heartache things
@@ -760,4 +760,567 @@ Yes, happiness
 Wish you for elsewhere
 We remember this should
 You write and it's not there
-Call on me;
+Call on me;false;3:39;210;0;
+
+Can’t Let Her Get Away;Dangerous;1991;11;26;
+I thought she had to have it
+Since the first time she came
+Who knows the situation
+Mysteries do remain
+And now I wonder why
+I breakdown when I cry
+Is it something I said
+Or is it just a lie
+(is it just a lie)
+I try so hard to love you
+Some things take
+Time and shame
+I think the whole world
+Of you
+Your thoughts of me remain
+I'll play the fool for you
+I'll change the rules for you
+Just say it and I'll do
+Just make this thing come true
+(make a dream come true)
+If I let her get away
+Though I'm begging
+On my knees
+I'll be crying everyday
+Knowing the girl
+That got away
+I can't let
+I can't let her get away
+I can't let
+I can't let her get away
+I can't let
+I can't let her get away
+I can't let
+I can't let her get away
+I tried to mastermind it
+By saying let it be
+But every time I did it
+The hurt came back at me
+I told you that I need you
+A thousand times and why
+I played the fool for you
+And still you said goodbye
+(still you said goodbye)
+If I let her get away
+Then the world will
+Have to see
+A fool who lives alone
+And the fool who
+Set you free
+I can't let
+I can't let her get away
+I can't let
+I can't let her get away
+I can't let
+I can't let her get away
+I can't let
+I can't let her get away
+I've got the feelin'
+Can't let go
+Can't let go
+I can't let
+I can't let her get away
+I can't let
+I can't let her get away
+I can't let
+I can't let her get away
+I can't let
+I can't let her get away;false;5:00;315,760;0; 
+
+Childhood;HIStory - Past, Present And Future - Book 1;1995;06;16; 
+Have you seen my Childhood?
+I'm searching for the world that I come from
+'Cause I've been looking around
+In the lost and found of my heart...
+No one understands me
+They view it as such strange eccentricities...
+'Cause I keep kidding around
+Like a child, but pardon me...
+
+People say I'm not okay
+'Cause I love such elementary things...
+It's been my fate to compensate,
+for the Childhood
+I've never known...
+
+Have you seen my Childhood?
+I'm searching for that wonder in my youth
+Like pirates in adventurous dreams,
+Of conquest and kings on the throne...
+
+Before you judge me, try hard to love me,
+Look within your heart then ask,
+Have you seen my Childhood?
+
+People say I'm strange that way
+'Cause I love such elementary things,
+It's been my fate to compensate,
+for the Childhood I've never known...
+
+Have you seen my Childhood?
+I'm searching for that wonder in my youth
+Like fantastical stories to share
+The dreams I would dare, watch me fly...
+
+Before you judge me, try hard to love me.
+The painful youth I've had
+
+Have you seen my Childhood…;false;4:29;2,867,498;0;
+
+Cinderella Stay Awhile;Forever, Michael;1975;01;16; 
+Cinderella, stay awhile
+You're the one that I've been lookin' for
+Cinderella, bring your smile
+All around me sunbeams start to fall
+Midnight is so near
+Please don't disappear
+Now that you are here
+Stay awhile
+Cinderella, I just know
+That the magic slipper's gonna to fit
+Cinderella, do not go
+You're my princess I am sure of it
+This is love for sure
+Love that's sweet and pure
+Love that will endure
+Stay awhile
+When you speak
+The angels all sing
+This is the kind of magic
+You bring, oh
+Cinderella, stay awhile
+This is like a fairytale with you
+Cinderella, when you smile
+All my fairytales are coming true
+Well my only fear
+Is midnight is so near
+Please don't disappear
+Stay awhile, oh
+Fairytales, make-believe and you
+Fairytales, make-believe and you
+Cinderella, stay awhile
+Don't you go, ho
+Cinderella, stay awhile
+Don't you go
+Stay, stay, Cinderella
+Stay awhile, please love me Cinderella
+Don't you go, please don't go
+Cinderella, I would die
+Cinderella, don't you go, well my
+I wanna be your fella, Cinderella
+I wanna be your fella, alright
+Don't you go, Cinderella;false;3:10;1,065;0;
+
+Come Together;HIStory - Past, Present And Future - Book 1;1995;06;19; 
+Here come ol' flat top
+He come groovin' up slowly
+He's got Joo Joo eyeball
+He one holy roller
+He got hair down to his knees
+Got to be a joker he just do what he please
+He wear no shoeshine
+He's got toe jam football
+He's got monkey finger
+He shoot Coca-Cola
+He say "I know you, you know me"
+One thing I can tell you is you got to be free
+Come together right now over me
+He bag production
+He's got walrus gum-boot
+He's got Ono sideboard
+He one spinal cracker
+He got feet down through his knees
+Hold you in his armchair
+You can feel his disease
+Come together right now over me
+He roller coaster
+He's got early warning
+He's got muddy water
+He one Mojo filter
+He say "One and one and one is three"
+Got to be good looking 'cause he's so hard to see
+Come together right now over me;false;5:41;6,212,332;0; 
+
+Corner Of The Sky;Skywriter;1973;03;29; 
+Everything has its season
+Everything has its time
+Show me a reason
+And I'll soon show you a rhyme
+Cats sit on the window sill
+Children sit in the show
+Why do I feel
+I don't fit in anywhere I go
+
+Rivers belong where they can ramble
+Eagles belong where they can fly
+I've got to be where my spirit can run free
+Gotta find my corner of the sky
+
+Every man has his daydreams
+Every man has his goal
+People like the way dreams have of sticking to the soul
+Thunder comes after lightning
+Nightingales have their song
+And don't you see I want my life
+To be something more than none
+
+Rivers belong where they can ramble
+Eagles belong where they can fly
+I've got to be where my spirit can run free
+Gotta find my corner of the sky
+Of the sky
+
+So many men seem desperate
+'Cause they got something small
+But I, I won't rest
+Until I know I have it all
+So don't ask where I'm goin'
+But listen when I'm gone
+Always you'll hear me singin'
+Softly to the dawn
+
+Rivers belong where they can ramble
+Eagles belong where they can fly
+I've got to be where my spirit can run free
+Gotta find my corner of the sky
+Rivers belong where they can ramble
+Eagles belong where they can fly
+(Fly, oh)
+I've got to be where my spirit can run free
+(Gotta find)
+Gotta find my corner
+(Gotta find)
+Gotta find my corner, yes, I do
+(Gotta find)
+Gotta find my corner
+(Gotta find)
+Gotta find my corner of the sky;false;3:41;49,305;0; 
+
+Cry;Invincible;2001;10;30; 
+[Verse 1]
+Somebody shakes when the wind blows
+Somebody's missing a friend, hold on
+Somebody's lacking a hero
+And they have not a clue
+When it's all gonna end
+
+[Verse 2]
+Stories buried and untold
+Someone is hiding the truth, hold on
+When will this mystery unfold
+And will the sun ever shine
+In the blind man's eyes when he cries?
+
+[Chorus:]
+You can change the world (I can't do it by myself)
+You can touch the sky (Gonna take somebody's help)
+You're the chosen one (I'm gonna need some kind of sign)
+If we all cry at the same time tonight
+
+[Verse 3]
+People laugh when they're feelin sad
+Someone is taking a life, hold on
+Respect to believe in your dreams
+Tell me where were you
+when your children cried last night?
+
+[Verse 4]
+Faces fill with madness
+Miracles unheard of, hold on
+Faith is found in the winds
+All we have to do
+Is reach for the truth
+
+[Chorus]
+
+And when that flag blows
+There'll be no more wars
+And when all calls
+I will answer all your prayers
+
+[Chorus x3]
+
+Change the world;false;4:57;15,137,493;0; 
+
+D.s.;HIStory - Past, Present And Future - Book 1;1995;06;16; 
+They want to get my ass
+Dead or alive
+You know he really tried to take me down by surprise
+I bet he missioned with the CIA
+He don't do half what he say
+Tom Sneddon is a cold man
+Tom Sneddon is a cold man
+Tom Sneddon is a cold man
+Tom Sneddon is a cold man
+He out shock in every single way
+He'll stop at nothing just to get his political say
+He think he bad because he's BSTA
+I bet he never had a social life anyway
+You think he brother with the KKK?
+I know his mother never taught him right anyway
+He want your vote just to remain TA
+He don?t do half what he say
+Tom Sneddon is a cold man
+Tom Sneddon is a cold man
+Tom Sneddon is a cold man
+Tom Sneddon is a cold man
+Tom Sneddon is a cold man
+Tom Sneddon is a cold man
+Tom Sneddon is a cold man
+Tom Sneddon is a cold man
+Slash!
+Does he send letters to the FBI?
+Did he say to either do it or die?
+Tom Sneddon is a cold man
+Tom Sneddon is a cold man
+Tom Sneddon is a cold man
+Tom Sneddon is a cold man;false;4:51;175,266;0; 
+
+Dangerous;Dangerous;1991;11;26;  
+The way she came into the place
+I knew right then and there
+There was something different
+About this girl
+The way she moved
+Her hair, her face, her lines
+Divinity in motion
+As she stalked the room
+I could feel the aura
+Of her presence
+Every head turned
+Feeling passion and lust
+The girl was persuasive
+The girl I could not trust
+The girl was bad
+The girl was dangerous
+I never knew but I was
+Walking the line
+Come go with me
+I said I have no time
+And don't you pretend we didn't
+Talk on the phone
+My baby cried
+She left me standing alone
+She's so dangerous
+The girl is so dangerous
+Take away my money
+Throw away my time
+You can call me honey
+But you're no damn good for me
+She came at me in sections
+With the eyes of desire
+I fell trapped into her
+Web of sin
+A touch, a kiss
+A whisper of love
+I was at the point
+Of no return
+Deep in the darkness of
+Passion's insanity
+I felt taken by lust's
+Strange inhumanity
+This girl was persuasive
+This girl I could not trust
+The girl was bad
+The girl was dangerous
+I never knew
+But I was living in vain
+She called my house
+She said you know my name
+And don't you pretend
+You never did me before
+With tears in her eyes
+My baby walked out the door
+She's so dangerous
+The girl is so dangerous
+Take away my money
+Throw away my time
+You can call me honey
+But you're no damn good for me
+Dangerous
+The girl is so dangerous
+I have to pray to god
+'Cause I know how
+Lust can blind
+It's a passion in my soul
+But you're no damn lover
+Friend of mine
+I can not sleep alone tonight
+My baby left me here tonight
+I cannot cope 'til it's all right
+You and your manipulation
+You hurt my baby
+And then it happened
+She touched me
+For the lips of
+A strange woman
+Drop as a honeycomb
+And her mouth was
+Smoother than oil
+But her inner spirit and words
+Were as sharp as
+A two-edged sword
+But I loved it
+'Cause it's dangerous
+Dangerous
+The girl is so dangerous
+Take away my money
+Throw away my time
+You can call me honey
+But you're no damn good for me
+Dangerous
+The girl is so dangerous
+Take away my money
+Throw away my time
+You can call me honey
+But you're no damn good for me
+Dangerous
+The girl is so dangerous
+Take away my money
+Throw away my time
+You can call me honey
+But you're no damn good for me
+Dangerous
+The girl is so dangerous
+I have to pray to god
+'cause I know how
+Lust can blind
+It's a passion in my soul
+But you're no damn lover
+Friend of mine;false;7:00;1,576,897;0; 
+ 
+Dirty Diana;Bad;1988;04;18;
+You never make me stay
+So take your weight off of me
+I know your every move
+So won't you just let me be
+I've been here times before
+But I was too blind to see
+That you seduce every man
+This time you won't seduce me
+She's saying that's okay
+Hey baby do what you please
+I have the stuff the you want
+I am the thing that you need
+She looked me deep in the eyes
+She's touchin' me so to start
+She says there's no turnin' back
+She trapped me in her heart
+Dirty Diana, nah
+Dirty Diana, nah
+Dirty Di-ana, nah
+Dirty Diana
+Let me be!
+Oh no
+Oh no
+Oh no
+She likes the boys in the band
+She knows when they come to town
+Every musician's fan after the curtain comes down
+She waits at backstage doors
+For those who have prestige
+Who promise fortune and fame
+A life that's so carefree
+She's says that's okay
+Hey baby do what you want
+I'll be your night lovin' thing
+I'll be the freak you can taunt
+And I don't care what you say
+I want to go too far
+I'll be your everything
+If you make me a star
+Dirty Diana, nah
+Dirty Diana, nah
+Dirty Di-ana, nah
+Dirty Diana
+Dirty Diana, nah
+Dirty Diana, nah
+Dirty Diana, nah
+Dirty Diana
+Diana!
+Diana!
+Dirty Diana!
+It's Diana! Yeah, yeah
+She said I have to go home
+'Cause I'm real tired you see
+But I hate sleppin' alone
+Why don't you come with me
+I said my baby's at home
+She's probably worried tonight
+I didn't call on the phone to
+Say that I'm alright
+Diana walked up to me,
+She said I'm all yours tonight
+At that I ran to the phone
+Sayin' baby I'm alright
+I said but unlock the door.
+Because I forgot the key.
+She said he's not coming back
+Because he's sleeping with me
+Dirty Diana, nah
+Dirty Diana, nah
+Dirty Di-ana, nah
+Dirty Diana, nah
+Dirty Diana, nah
+Dirty Diana, nah
+Dirty Di-ana, nah
+Dirty Diana
+Come on!
+Come on!
+Come on!
+Come on!;true;5:05;46,950,128;0;
+ 
+Don’t Let It Get You Down;Farewell My Summer Love;1984;05;15; 
+Don't let it get you down
+When you're not on top
+When a stumble is tool
+Puts us up and never stops, no
+Ain't double shame, love ain't a friendly game
+Don't let it get you down, oh no
+Don't let it get you down
+When the cards are far
+Pick up and let them walked away
+Before you loose your heart
+Ain't double shame, ove ain't a friendly game
+Don't let it get you down
+Oh, no
+Look at me
+Don't it seem like you know what I'm talking about
+Talk to me
+Let me be, be the one, I can straighten it out girl
+Ain't double shame
+Love ain't a friendly game
+Don't let it get you down
+I can bring you sunshine, make you happy
+Ain't no cloud skies hanging upon me yeah
+Don't let it get you down
+Don't let it get you down
+You can start again
+Now yesterday is gone
+Let tomorrow be your friend
+Hey, don't regret girl
+My love is straight ahead
+Don't let it get you down
+(Oh, no)
+Oh no
+Look at me
+Don't it seem like you know what I'm talking about
+Talk to me
+Let me be, be the one, I can straighten it out girl
+I can straighten it out girl, yeah
+I can't straighten it out, girl, come on
+Don't let it, let it, let it
+Don't let it, let it, let it
+No, no, don't let it
+Don't let it get you down
+Don't let it, let it, let it
+Don't let it, let it, let it
+Don't let it get you down
+Don't let it get you down
+Come on, baby
+Don't let it get you down;false;3:00;3,199;0;
