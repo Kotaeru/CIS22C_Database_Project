@@ -1,0 +1,421 @@
+/*
+ * wordID.h
+ *
+ *  Created on: Nov 29, 2017
+ *      Author: Maya
+ */
+
+#ifndef WORDID_H_
+#define WORDID_H_
+
+
+#include <string>
+
+namespace std {
+
+class wordID {
+
+public:
+			string lyricword;
+			int id;
+			wordID(){lyricword="Empty"; id=-1;}
+			wordID(string lw, int identification)
+			{
+				lyricword=lw;
+				id=identification;
+			}
+
+			~wordID(){}
+			bool operator>(wordID &wori)
+			{
+				return (lyricword >wori.lyricword );
+			}
+			bool operator<(wordID &wori)
+				{
+					return (lyricword <wori.lyricword );
+				}
+			bool operator==(wordID &wori)
+				{
+					return (lyricword ==wori.lyricword );
+				}
+	};
+	wordID WI("empty",-1);
+
+} /* namespace std */
+
+#endif /* WORDID_H_ */
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+ * HashTableWI.h
+ *
+ *  Created on: Nov 28, 2017
+ *      Author: Maya
+ */
+
+#ifndef HASHTABLEWI_H_
+#define HASHTABLEWI_H_
+
+
+#include "wordID.h"
+#include <string>
+
+#include "Song.h"
+#include "BST.h"
+using namespace std;
+
+class HashTable_WI {
+private:
+
+
+public:
+	HashTable_WI();
+	virtual ~HashTable_WI();
+/*
+	class wordID
+	{
+		public:
+			wordID(string lw, int identification)
+			{
+				lyricword=lw;
+				id=identification;
+			}
+
+			string lyricword;
+			int id;
+			bool operator>(wordID &wori)
+			{
+				return (lyricword >wori.lyricword );
+			}
+			bool operator<(wordID &wori)
+				{
+					return (lyricword <wori.lyricword );
+				}
+			bool operator==(wordID &wori)
+				{
+					return (lyricword ==wori.lyricword );
+				}
+	};
+	wordID WI;
+	*/
+	  /**Access Functions*/
+
+	    int hash(string key) const;
+	    //returns the hash value for the given key
+	    //the hash value is the sum of
+	    //of the ASCII values of each char in the key
+	    //% the size the of the table
+	    //Key for this table: title + author
+
+	    int countBucket(int index) const;
+	    //counts the number of Books at this index
+	    //returns the count
+	    //pre: 0<= index < SIZE
+
+	    int search(wordID w) const;
+	    //Searches for b in the table
+	    //returns the index at which b is located
+	    //returns -1 if b is not in the table
+
+	    /**Manipulation Procedures*/
+
+	    void insert(wordID w);
+	    //inserts a new book into the table
+	    //calls the hash function on the key to determine
+	    //the correct bucket
+
+	    void remove(wordID w);
+	    //removes b from the table
+	    //calls the hash function on the key to determine
+	    //the correct bucket
+	    //pre: b is in the table
+
+	    /**Additional Functions*/
+
+	//    void printBucket(ostream& out, int index) const;
+	    //Prints all the books at index according to inOrderPrint
+	    //pre: 0<= index < SIZE
+	    //Should print according to the following formula:
+	    //Prints each book at that index in the format:
+	    //<title> by <author>
+	    //$<X.XX>
+	    //ISBN#: <isbn>
+	    //followed by a blank line
+
+	//    void printTable(ostream& out) const;
+	    //Prints the first book at each index
+	    //along with a count of the total books
+	    //at each index by calling count_bucket
+	    //as a helper function
+	    //Prints in the format:
+	    //Books in the Catalogue:
+	    //<new line>
+	    //Group <bucket>
+	    //<title> by <author>
+	    //$<X.XX>
+	    //ISBN: <isbn>
+	    //+<number of elements at this index> -1 more similar book(s)
+	    //<new line><new line><new line>
+
+	private:
+	    static const int SIZE = 10;
+	    BST<wordID> Table[SIZE];
+
+
+
+};
+
+
+
+
+
+
+
+
+
+
+
+
+#include "HashTableWI.h"
+#include "wordID.h"
+#include "Song.h"
+#include<iostream>
+
+using namespace std;
+
+
+HashTable_WI::HashTable_WI() {
+	// TODO Auto-generated constructor stub
+
+}
+
+HashTable_WI::~HashTable_WI() {
+	// TODO Auto-generated destructor stub
+}
+
+
+
+int HashTable_WI:: hash(string key) const
+{
+	int index, sum = 0;
+		    for(unsigned i = 0; i < key.length(); i++)
+		        sum += (int) key[i]; //summing the ASCII values for each character in the string
+		    index = sum % SIZE; //dividing the summed ASCII values by 35 && storing remainder as my index
+		    return index;
+}
+
+
+int HashTable_WI::countBucket(int index) const
+{
+	assert(index >= 0 && index < SIZE);
+	return Table[index].getSize();
+}
+
+int HashTable_WI::search(wordID w) const
+{
+	//wordID WI;
+	int index = hash(w.lyricword);
+	if(Table[index].search(w) == false)
+	{
+		return -1;
+	}
+	else if(Table[index].search(w) == true)
+	{
+		return index;
+	}
+	else
+	{
+		return -1;
+	}
+}
+
+void HashTable_WI::insert(wordID w)
+{
+	int index = hash(w.lyricword);
+
+		Table[index].insert(w);
+
+}
+
+void HashTable_WI::remove(wordID w)
+{
+	int index = hash(w.lyricword);
+
+		bool found = Table[index].search(w);
+
+		if(found)
+		{
+			Table[index].remove(WI);
+		}
+		else
+		{
+			cout << "the lyric is not in the list";
+		}
+}
+/*
+void HashTable_WI::printBucket(ostream& out, int index) const
+{
+	Table[index].inOrderPrint(out);
+}
+
+void HashTable_WI::printTable(ostream &out) const
+{
+	for(int i = 0; i < SIZE; i++)
+	{
+		wordID WI = Table[i].getRoot();
+		out << "Songs in Catalouge" <<endl <<endl;
+		out << "Group: " << i+1 << endl;
+		out << WI.lyricword << " with ID " << WI.id <<endl;
+		out << "+ " << Table[i].getSize()-1 << " many more similar Songs" << endl <<endl;
+	}
+}
+*/
+
+
+
+
+
+
+
+
+//============================================================================
+// Name        :II.cpp
+// Author      : 
+// Version     :
+// Copyright   : Your copyright notice
+// Description : Hello World in C++, Ansi-style
+//============================================================================
+
+#include <iostream>
+#include "HashTable.h"
+#include "HashTableWI.h"
+#include "Song.h"
+#include "BST.h"
+#include <fstream>
+#include <string>
+#include <ctype.h>
+#include <sstream>
+#include "wordID.h"
+using namespace std;
+
+
+
+int main() {
+	int idcount;
+
+	BST<Song> bstallsongs;
+	HashTable genHT;
+	HashTable_WI ofwordIds1;
+	HashTable invertedIndex;
+	ifstream inputfile;
+	Song obj1;
+	string songName;
+	string songAlbum;
+	date songDate; // can you just inputfile
+	string lyrics;
+	string onChart;
+	string length;
+	string views;
+	string keyHits;
+	string temp;
+
+	//inputfile.open("songs.txt");
+	inputfile.open("songs2.txt");
+	if(inputfile)    //just for me~
+	{
+		cout <<"successful open";
+	}
+	char delimeter(';');
+	while(!inputfile.eof())
+	{
+
+		getline(inputfile, songName , delimeter);
+		getline(inputfile, songAlbum, delimeter);
+
+
+		getline(inputfile, temp,delimeter);
+		songDate.year=atoi(temp.c_str());
+			//inputfile >> songDate.year;
+		getline(inputfile, temp,delimeter);
+		songDate.month=atoi(temp.c_str());
+			//inputfile >> songDate.month;
+		getline(inputfile, temp,delimeter);
+		songDate.day=atoi(temp.c_str());
+			//inputfile >> songDate.day;
+
+		getline(inputfile, lyrics, delimeter);
+		//read all word into string and then stringstream which breaks it up by whitespace
+		//search for WI.lyricword in HT, if not found assign ID and increment count
+			//else, return id
+			//in both cases, HashTable insert at InvertedIndex[wordID.ID];
+		//add each lyric to the HT
+
+		stringstream ss(lyrics);
+		string substring;
+		while(ss >> substring)
+		{
+			//if statement
+			wordID tempobj(substring,idcount);
+
+			ofwordIds1.insert(tempobj);
+
+		}
+
+
+
+
+		//cout <<lyrics;
+
+
+		//create the wordID struct
+		//function that exclues all the unnecessary words
+		//something about assigning ID to lyrics
+		//if the word has already appeared it has an idea to you check the word-ID hashtable each time
+				//(somehow you note which song was the one to contain this word)
+		//hash the wordID object in this wordID HT
+		//make a 2nd hashtable in which the ID of a word in the previous HT is the index of this one
+
+		//inputfile >>onChart; //need to figure out how to convert string to bool
+		getline(inputfile, onChart,delimeter);
+		//inputfile >> length;
+		getline(inputfile, length,delimeter);
+
+		inputfile >>views;//
+		getline(inputfile, views,delimeter);
+		//inputfile >>keyHits;
+		getline(inputfile, keyHits,delimeter);
+		inputfile.ignore();
+		inputfile.ignore();
+
+		Song s1(songName, songAlbum, songDate, lyrics, onChart, length, views, keyHits); //can call constructor instead of sets field with get
+			cout <<s1;
+
+		genHT.insert(s1);
+		bstallsongs.insert(s1);
+	}
+	//bstallsongs.inOrderPrint(cout);
+
+
+
+	//inverted index portion
+}
+/*
+bool convertString(string T)
+{
+
+	if(T.compare("true"))
+			{return true;}
+	else
+		return false;
+}
+*/
