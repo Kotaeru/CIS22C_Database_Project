@@ -63,7 +63,7 @@ private:
     //private helper function for the destructor
     //recursively frees the memory in the BST
 
-    bool searchNode(Node* root, bstdata data)const;
+    BST<bstdata> searchNode(Node* root, bstdata data)const;	//work on this one
     //recursive helper function to search
     //returns whether the value is found in the tree
 
@@ -124,7 +124,7 @@ public:
     int getHeight() const;
     //returns the height of the tree
 
-    bool search(bstdata data) const;
+    BST<bstdata> search(bstdata data) const;		//do this one.
     //returns whether the data is found in the tree
     //pre: !isEmpty()
 
@@ -323,8 +323,8 @@ void  BST<bstdata>:: freeNode(Node* root) //private helper of destructor
 
 	}
 
-template<typename bstdata>
-bool BST<bstdata>::searchNode(Node* root, bstdata data)const //private helper of search(recursive)
+template<typename bstdata>	//this one is edited.
+BST<bstdata> BST<bstdata>::searchNode(Node* root, string data,int num)const //private helper of search(recursive)
 	{
 		//cout << root->data << endl;
 //		if(root->data == data)
@@ -346,21 +346,50 @@ bool BST<bstdata>::searchNode(Node* root, bstdata data)const //private helper of
 //				else
 //					{return searchNode(root->rightchild,data);}
 //			}
+		string tempSong;
+		if(num == 1){
+			tempSong = root->data->songName;	//title
+		} else if (num == 2){
+			tempSong = root->data->songAlbum; //album
+		} else if (num == 3){
+			tempSong = root->data->year; //album
+		} else if (num == 4){
+			tempSong = root->data->month; //album
+		} else if (num == 5){
+			tempSong = root->data->day; //album
+		} else if (num == 6){
+			tempSong = root->data->onChart; //album
+		} else if (num == 7){
+			tempSong = root->data->length; //album
+		} else if (num == 8){
+			tempSong = root->data->views; //album
+		}
+
 		if(root==NULL)
 		{
-			return false;
+			return ;
+		}else if(root!=NULL)
+		{
+			searchNode(root->leftchild,data, num);
+			if(tempSong == data){
+				insert()
+			}
+			searchNode(root->rightchild,data, num);
 		}
-		else if(data == root -> data){
-			return true;
-		}
-		else if(data<root->data)
+
+		/*
+		else if(tempSong == data){
+			searchNode(root->leftchild, data, num);
+			searchNode(root->rightchild, data, num);
+			return ;
+		}else if(data < root->data)
 		{
 			return searchNode(root->leftchild,data);
 		}
-		else if(data>root->data)
+		else if(data > root->data)
 		{
 			return searchNode(root->rightchild,data); //only changes if delete is actually used
-		}
+		}*/
 		return false;
 	}
 
@@ -438,9 +467,6 @@ typename BST<bstdata>::Node* BST<bstdata>::deleteNode(Node* root, bstdata data)/
 						root=root->rightchild;
 						delete temp;
 						return root;
-
-
-
 					}
 				else
 					{

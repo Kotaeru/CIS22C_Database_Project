@@ -22,7 +22,7 @@ HashTable::~HashTable() //constructor
 }
 
 //Converts the key to an ASCII value to use for index
-int HashTable:: hash(string key) const
+int HashTable::hash(string key) const
 {
 	int index, sum = 0;
 	    for(unsigned i = 0; i < key.length(); i++)
