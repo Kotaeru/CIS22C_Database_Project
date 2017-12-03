@@ -19,6 +19,7 @@
 #include <string>
 #include <assert.h>
 #include "Song.h"
+#include<iostream>
 
 using namespace std;
 template<typename bstdata>
@@ -88,6 +89,9 @@ private:
     //recursive helper function to the height function
     //returns the height of the tree
 
+    void getResults(Node* root, string usersearch, int searchtype, ostream& out);
+    //checks the BST at a index and pulls all the nodes that match into a results BST
+
 public:
 
     /**constructors and destructor*/
@@ -151,6 +155,14 @@ public:
     void postOrderPrint(ostream& out) const;
     //calls the postOrderPrint function to print out the values
     //stored in the BST
+
+    void results(string userSearch, int searchtype, ostream& out);
+    //wrapper function for getResults
+    //stores all results in a new BST
+
+    void fullResults(string usersearch, ostream& out, Node* root);
+
+    void getFullResults(string search, ostream& out);
 };
 
 
@@ -197,11 +209,7 @@ template<typename bstdata>
 void BST<bstdata>:: insertNode(Node* root, bstdata data)//private version
 	{
 		Node* N = new Node(data);// IS THIS OK!>!?!?!? to not pass in root
-		if(root==NULL)
-		{root=N;}
-		if(root->data== data)//base case b/c we don't want duplicates
-			return;
-		else if(root->data>data)
+		if(root->data>data)
 			{
 				if(root->leftchild==NULL)
 					{root->leftchild=N;}
@@ -235,14 +243,21 @@ void BST<bstdata>::insert(bstdata data) //wrapper
 template<typename bstdata>
 void  BST<bstdata>:: inOrderPrint(ostream& out, Node* root) const //private
 	{
-		if(root==NULL)
+		/*if(root->data == NULL)
+		{
+			out << "Null thing"<<endl;
 			return;
-		if(root!=NULL)
-			{
-				inOrderPrint(out, root->leftchild);
-				out << root->data <<endl;
-				inOrderPrint(out,root->rightchild);
-			}
+		}*/
+		if(root == NULL)
+		{
+			return;
+		}
+		else
+		{
+			inOrderPrint(out, root->leftchild);
+			out << root->data;
+			inOrderPrint(out,root->rightchild);
+		}
 	}
 
 
@@ -348,9 +363,11 @@ bool BST<bstdata>::searchNode(Node* root, bstdata data)const //private helper of
 //			}
 		if(root==NULL)
 		{
+			cout << "Null end" <<endl;
 			return false;
 		}
 		else if(data == root -> data){
+			cout << "this is good"<<endl;
 			return true;
 		}
 		else if(data<root->data)
@@ -361,7 +378,6 @@ bool BST<bstdata>::searchNode(Node* root, bstdata data)const //private helper of
 		{
 			return searchNode(root->rightchild,data); //only changes if delete is actually used
 		}
-		return false;
 	}
 
 template<typename bstdata>
@@ -537,9 +553,98 @@ bool BST<bstdata>:: isEmpty() const
 template<typename bstdata>
 bstdata BST<bstdata>::getRoot() const
 	{
-		assert(root!=NULL);
+		Song B1;
+		if(root == NULL)
+		{
+			return B1;
+		}
 		return root->data;
 	}
+
+template<typename bstdata>
+void BST<bstdata>::getResults(Node* root, string usersearch, int searchType, ostream& out)
+	{
+		if(root == NULL)
+		{
+			return;
+		}
+		Song S1 = root->data;
+		string field;
+		if(searchType == 1)
+		{
+			field = S1.getName();
+		}
+		else if(searchType == 2)
+		{
+			field = S1.getAlbum();
+		}
+		else if(searchType == 3)
+		{
+			field = S1.getYear();
+		}
+		else if(searchType == 4)
+		{
+			field == S1.getMonth();
+		}
+		else if(searchType == 5)
+		{
+			field = S1.getDay();
+		}
+		else if(searchType == 6)
+		{
+			field == S1.isOnChart();
+		}
+		else if(searchType == 7)
+		{
+			field = S1.getLength();
+		}
+		else if(searchType == 8)
+		{
+			field = S1.getViews();
+		}
+		getResults(root->leftchild, usersearch, searchType, out);
+		if(usersearch == field)
+		{
+		out << root->data;
+		}
+		getResults(root->rightchild, usersearch, searchType, out);
+	}
+
+template<typename bstdata>
+void BST<bstdata>::results(string userSearch, int searchtype, ostream& out)
+{
+	getResults(root, userSearch, searchtype, out);
+}
+
+template<typename bstdata>
+void BST<bstdata>::fullResults(string usersearch, ostream& out, Node* root)
+{
+	if(root == NULL)
+	{
+		return;
+	}
+	Song B1;
+	B1 = root->data;
+	fullResults(usersearch, out, root->leftchild);
+	if(B1.getName() == usersearch)
+	{
+		out <<"Title: " << B1.getName() <<endl;
+		out << "Album: " << B1.getAlbum() <<endl;
+		out << "Publish Date: " <<B1.getDate() <<endl;
+		out << "Reached Charts: " << B1.isOnChart() <<endl;
+		out << "Length: " << B1.getLength() <<endl;
+		out << "Youtube Views: " << B1.getViews() <<endl;
+		out << "Lyrics: " << B1.getLyrics()<<endl <<endl;
+	}
+	fullResults(usersearch, out, root->rightchild);
+}
+
+template<typename bstdata>
+void BST<bstdata>::getFullResults(string search, ostream& out)
+{
+	fullResults(search, out, root);
+}
+
 
 
 

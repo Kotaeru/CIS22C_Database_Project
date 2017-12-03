@@ -59,6 +59,21 @@ string Song::getDate()
 	return dateData;
 }
 
+string Song::getYear()
+{
+	return year;
+}
+
+string Song::getMonth()
+{
+	return month;
+}
+
+string Song::getDay()
+{
+	return day;
+}
+
 string Song:: getLyrics()
     {return songlyrics;}
 
@@ -87,15 +102,15 @@ void Song::setName(string title)
 {songName=title;}
  void Song::setAlbum(string album)
    {songAlbum= album;}
- void Song::setYear(int y)
+ void Song::setYear(string y)
    {year = y;}
    void Song:: setLyrics(string lyr)
    {songlyrics=lyr;}
-   void Song:: setCharts(bool oC)
+   void Song:: setCharts(string oC)
    {onChart=oC;}
-   void Song:: setLength(int len)
+   void Song:: setLength(string len)
    {length=len;}
-   void Song:: setViews(int viw)
+   void Song:: setViews(string viw)
    {views=viw;}
   // void Song:: setHits(int kH)
   // {keyHits=kH;}
@@ -104,13 +119,15 @@ void Song::setName(string title)
 
 
 bool Song::operator==(const Song& song) {
-    return (songName == song.songName && songAlbum==song.songAlbum);
+    return (songName == song.songName || songAlbum == song.songAlbum || year == song.year || onChart == song.onChart || length == song.length || views == song.views);
 }
 
 
 ostream& operator<<(ostream& os, const Song& song)
 {
-	os << song.songName << " by " << song.songAlbum << endl;
+	os <<endl <<"Title: " << song.songName <<endl;
+	os <<"Album: " << song.songAlbum <<endl;
+	os <<"Publish Date: " << song.month << "/" << song.day << "/" << song.year <<endl;
 	//os <<"$"<<song.price << endl;
 	//os <<"ISBN#: " <<song.isbn<< endl;
 	return os;
@@ -120,7 +137,7 @@ ostream& operator<<(ostream& os, const Song& song)
 bool Song:: operator<(const Song& song)
 {
 
-	return (songName < song.songName || ( songName == song.songName && songAlbum < song.songAlbum ));
+	return (songName < song.songName);
 
 
 }
@@ -128,5 +145,6 @@ bool Song:: operator<(const Song& song)
 
 bool Song:: operator>(const Song& song)
 {
-	return (songName > song.songName || ( songName == song.songName && songAlbum > song.songAlbum ));
+	return (songName > song.songName);
 }
+

@@ -45,23 +45,27 @@ public:
     string getName();
     string getAlbum();
     string getDate();
+    string getYear();
+    string getMonth();
+    string getDay();
     string getLyrics();
     string isOnChart();
     string getLength();
     string getViews();
-    string getHits();
+
+    //string getHits();
 
     /**Manipulation Procedures*/
     void setName(string title);
     void setAlbum(string album);
    // void setDate(int year, int month, int day);
-    void setYear(int y);
-    void setMonth(int m);
-    void setDay(int d);
+    void setYear(string y);
+    void setMonth(string m);
+    void setDay(string d);
     void setLyrics(string songLyrics1);
-    void setCharts(bool isOnChart);
-    void setLength(int songlength);
-    void setViews(int ytViews);
+    void setCharts(string oC);
+    void setLength(string len);
+    void setViews(string viw);
     //void setHits(int keyHits);
 
 

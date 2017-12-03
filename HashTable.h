@@ -46,14 +46,14 @@ public:
     //returns the count
     //pre: 0<= index < SIZE
 
-    int search(Song b) const;
+    int search(Song b, int searchType) const;
     //Searches for b in the table
     //returns the index at which b is located
     //returns -1 if b is not in the table
 
     /**Manipulation Procedures*/
 
-    void insert(Song b);
+    void insert(Song b, int searchType);
     //inserts a new book into the table
     //calls the hash function on the key to determine
     //the correct bucket
@@ -91,8 +91,12 @@ public:
     //+<number of elements at this index> -1 more similar book(s)
     //<new line><new line><new line>
 
+    void printResults(ostream& out, int index, string search, int searchType);
+
+    void getFullResults(ostream& out, int index, string search);
+
 private:
-    static const int SIZE = 10;
+    static const int SIZE = 30;
     BST<Song> Table[SIZE];
 };
 

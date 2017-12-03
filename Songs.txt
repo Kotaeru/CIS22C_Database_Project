@@ -1,4 +1,4 @@
-2 Bad;HIStory: Past, Present and Future, Book I;1995;06;16; 
+2 Bad;HIStory: Past, Present and Future, Book I;1995;06;16;
 Told me that you're doin' wrong
 Word out shockin' all alone
 Cryin' wolf ain't like a man
@@ -79,8 +79,7 @@ Why don't you scream and shout it
 Too bad too bad about it
 Why don't you just scream and shout it
 Too bad too bad about it;false;4:50;219,501;0;
-
-2,000 Watts;Invincible;2001;10;31; 
+2,000 Watts;Invincible;2001;10;31;
 Bass note, treble, stereo control, how low you go
 Just enough to make your juices flow
 Press play, don't stop, rotate, too hot
@@ -101,9 +100,8 @@ Too much of that, fuse blown
 Be careful what you say don't overload
 Two thousand watts, eight ohms, two hundred volts, real strong
 Too much of that, fuse blown
-Be careful what you say don't overload;false;4:24;81,648;0; 
-
-A Brand New Day;The Wiz (Original Motion Picture Soundtrack);1978;10;24; 
+Be careful what you say don't overload;false;4:24;81,648;0;
+A Brand New Day;The Wiz (Original Motion Picture Soundtrack);1978;10;24;
 Everybody look around
 'Cause there's a reason to rejoice you see
 Everybody come out
@@ -161,8 +159,7 @@ Can't you feel a brand new day?
 Can't you feel a brand new day?
 Can't you feel a brand new day?
 Can't you feel a brand new day?;false;7:48;2,834;0;
-
-Another Part Of Me;Bad;1988;07;11; 
+Another Part Of Me;Bad;1988;07;11;
 We're takin' over
 We have the truth
 This is the mission to see it through
@@ -200,9 +197,8 @@ You're just another part of me
 Another part of me
 We're taking over
 This is the truth, baby
-Another part of me;true;3:55;11,453;0; 
-
-Baby Be Mine;Thriller;1982;11;30; 
+Another part of me;true;3:55;11,453;0;
+Baby Be Mine;Thriller;1982;11;30;
 I don't need no dreams when I'm by your side
 Every moment takes me to paradise
 Darlin', let me hold you
@@ -250,9 +246,8 @@ So baby, be mine, baby, be mine
 You're everything this world could be to me
 C'mon, girl, c'mon girl
 So baby, be mine
-You're everything this world could be to me;false;4:20;255,833;0; 
-
-Bad;Bad;1987;09;07; 
+You're everything this world could be to me;false;4:20;255,833;0;
+Bad;Bad;1987;09;07;
 Your butt is mine
 Gonna tell you right
 Just show your face
@@ -326,8 +321,7 @@ Answer right now
 Just to tell you once again
 Who's bad
 Who's bad?;true;4:07;675,711;0;
-
-Beat It;Thriller;1983;02;18; 
+Beat It;Thriller;1983;02;18;
 They told him don't you ever come around here
 Don't want to see your face, you better disappear
 The fire's in their eyes and their words are really clear
@@ -380,8 +374,7 @@ Showin' how funky and strong is your fight
 It doesn't matter who's wrong or right
 Just beat it, beat it
 Beat it, beat it, beat it;true;4:58;287,084,568;0;
-
-Ben;Ben;1972;08;04; 
+Ben;Ben;1972;08;04;
 Ben, the two of us need look no more
 We both found what we were looking for
 With a friend to call my own
@@ -400,9 +393,8 @@ I wish they would try to'
 I'm sure they'd think again if they had a friend like Ben
 A friend like Ben
 (Like Ben)
-Like Ben;true;2:47;6,807;0; 
-
-Billie Jean;Thriller;1983;01;02; 
+Like Ben;true;2:47;6,807;0;
+Billie Jean;Thriller;1983;01;02;
 She was more like a beauty queen from a movie scene
 I said don't mind, but what do you mean, I am the one
 Who will dance on the floor in the round
@@ -455,8 +447,7 @@ Billie Jean is not my lover
 Billie Jean is not my lover (don't Billie Jean)
 Billie Jean is not my lover
 Billie Jean is not my lover;true;4:55;345,298,606;0;
-
-Black Or White;Dangerous;1991;11;11; 
+Black Or White;Dangerous;1991;11;11;
 I took my baby on a Saturday bang
 Boy is that girl with you 
 Yes we're one and the same
@@ -505,7 +496,6 @@ Yea, yea, yea now
 It's black, it's white
 It's tough for them to get by
 It's black, it's white, (x3) whoo;true;6:22;212,198,453;0;
-
 Blood On The Dancefloor;Blood On The Dance Floor - HIStory In The Mix;1997;03;21; 
 She got your number
 She know your game
@@ -583,9 +573,8 @@ It was blood on the dance floor
 (blood on the dance floor)
 And I just can't take it
 The girl won't break it
-Oooâ€¦;true;4:16;38,091,716;0; 
-
-Break Of Dawn;Invincible;2001;10;30; 
+Ooo…;true;4:16;38,091,716;0;
+Break Of Dawn;Invincible;2001;10;30;
 Hold my hand, feel the touch of your body cling to mine
 You and me, makin' love all the way through another night
 I remember you and I walking though the park at night
@@ -631,8 +620,7 @@ I don't want the sun to shine I want to make love
 Just this magic in your eyes and in my heart
 I don't know what I'm gonna do I can't stop lovin' you
 I won't stop 'til break of dawn makin' love;false;5:33;355,473;0;
-
-Burn This Disco Out;Off the Wall;1979;08;10; 
+Burn This Disco Out;Off the Wall;1979;08;10;
 There's a steam beat
 And it's comin' after you
 You can take it
@@ -683,8 +671,7 @@ Keep the boogie alright
 Get that sound
 Everybody just get on down
 Gonna dance, gonna shout, gonna burn this disco out;false;3:41;48,865;0;
-
-Butterflies;Invincible;2001;10;30; 
+Butterflies;Invincible;2001;10;30;
 All you gotta do is walk away and pass me by
 Don't acknowledge my smile when I try to say hello to you, yeah
 And all you gotta do is not answer my calls when
@@ -718,7 +705,6 @@ You give me butterflies inside, inside and I
 I just want to touch and kiss
 And I wish that I could be with you tonight
 You give me butterflies inside, inside and I;true;4:40;302,825;0;
-
 Call On Me;Farewell My Summer Love;1984;05;15;
 There goes the sunshine
 Here comes the rain
@@ -761,8 +747,7 @@ Wish you for elsewhere
 We remember this should
 You write and it's not there
 Call on me;false;3:39;210;0;
-
-Canâ€™t Let Her Get Away;Dangerous;1991;11;26;
+Can’t Let Her Get Away;Dangerous;1991;11;26;
 I thought she had to have it
 Since the first time she came
 Who knows the situation
@@ -830,9 +815,8 @@ I can't let her get away
 I can't let
 I can't let her get away
 I can't let
-I can't let her get away;false;5:00;315,760;0; 
-
-Childhood;HIStory - Past, Present And Future - Book 1;1995;06;16; 
+I can't let her get away;false;5:00;315,760;0;
+Childhood;HIStory - Past, Present And Future - Book 1;1995;06;16;
 Have you seen my Childhood?
 I'm searching for the world that I come from
 'Cause I've been looking around
@@ -870,9 +854,8 @@ The dreams I would dare, watch me fly...
 Before you judge me, try hard to love me.
 The painful youth I've had
 
-Have you seen my Childhoodâ€¦;false;4:29;2,867,498;0;
-
-Cinderella Stay Awhile;Forever, Michael;1975;01;16; 
+Have you seen my Childhood…;false;4:29;2,867,498;0;
+Cinderella Stay Awhile;Forever, Michael;1975;01;16;
 Cinderella, stay awhile
 You're the one that I've been lookin' for
 Cinderella, bring your smile
@@ -915,8 +898,7 @@ Cinderella, don't you go, well my
 I wanna be your fella, Cinderella
 I wanna be your fella, alright
 Don't you go, Cinderella;false;3:10;1,065;0;
-
-Come Together;HIStory - Past, Present And Future - Book 1;1995;06;19; 
+Come Together;HIStory - Past, Present And Future - Book 1;1995;06;19;
 Here come ol' flat top
 He come groovin' up slowly
 He's got Joo Joo eyeball
@@ -944,9 +926,8 @@ He's got muddy water
 He one Mojo filter
 He say "One and one and one is three"
 Got to be good looking 'cause he's so hard to see
-Come together right now over me;false;5:41;6,212,332;0; 
-
-Corner Of The Sky;Skywriter;1973;03;29; 
+Come together right now over me;false;5:41;6,212,332;0;
+Corner Of The Sky;Skywriter;1973;03;29;
 Everything has its season
 Everything has its time
 Show me a reason
@@ -999,9 +980,8 @@ Gotta find my corner, yes, I do
 (Gotta find)
 Gotta find my corner
 (Gotta find)
-Gotta find my corner of the sky;false;3:41;49,305;0; 
-
-Cry;Invincible;2001;10;30; 
+Gotta find my corner of the sky;false;3:41;49,305;0;
+Cry;Invincible;2001;10;30;
 [Verse 1]
 Somebody shakes when the wind blows
 Somebody's missing a friend, hold on
@@ -1045,9 +1025,8 @@ I will answer all your prayers
 
 [Chorus x3]
 
-Change the world;false;4:57;15,137,493;0; 
-
-D.s.;HIStory - Past, Present And Future - Book 1;1995;06;16; 
+Change the world;false;4:57;15,137,493;0;
+D.s.;HIStory - Past, Present And Future - Book 1;1995;06;16;
 They want to get my ass
 Dead or alive
 You know he really tried to take me down by surprise
@@ -1079,9 +1058,8 @@ Did he say to either do it or die?
 Tom Sneddon is a cold man
 Tom Sneddon is a cold man
 Tom Sneddon is a cold man
-Tom Sneddon is a cold man;false;4:51;175,266;0; 
-
-Dangerous;Dangerous;1991;11;26;  
+Tom Sneddon is a cold man;false;4:51;175,266;0;
+Dangerous;Dangerous;1991;11;26;
 The way she came into the place
 I knew right then and there
 There was something different
@@ -1192,8 +1170,7 @@ I have to pray to god
 Lust can blind
 It's a passion in my soul
 But you're no damn lover
-Friend of mine;false;7:00;1,576,897;0; 
- 
+Friend of mine;false;7:00;1,576,897;0;
 Dirty Diana;Bad;1988;04;18;
 You never make me stay
 So take your weight off of me
@@ -1274,8 +1251,7 @@ Come on!
 Come on!
 Come on!
 Come on!;true;5:05;46,950,128;0;
- 
-Donâ€™t Let It Get You Down;Farewell My Summer Love;1984;05;15; 
+Don’t Let It Get You Down;Farewell My Summer Love;1984;05;15;
 Don't let it get you down
 When you're not on top
 When a stumble is tool

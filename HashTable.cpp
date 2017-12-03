@@ -15,7 +15,7 @@ HashTable::HashTable() //constructor
 */
 }
 
-HashTable::~HashTable() //constructor
+HashTable::~HashTable() //destructor
 {
 
 
@@ -38,9 +38,42 @@ int HashTable::countBucket(int index) const
 	return Table[index].getSize();
 }
 
-int HashTable::search(Song S) const
+int HashTable::search(Song S, int searchType) const
 {
-	int index = hash(S.getName());
+	string field;
+	if(searchType == 1)
+	{
+		field = S.getName();
+	}
+	else if(searchType == 2)
+	{
+		field = S.getAlbum();
+	}
+		else if(searchType == 3)
+	{
+		field = S.getYear();
+	}
+	else if(searchType == 4)
+	{
+		field == S.getMonth();
+	}
+	else if(searchType == 5)
+	{
+		field = S.getDay();
+	}
+	else if(searchType == 6)
+	{
+		field == S.isOnChart();
+	}
+	else if(searchType == 7)
+	{
+		field = S.getLength();
+	}
+	else if(searchType == 8)
+	{
+		field = S.getViews();
+	}
+	int index = hash(field);
 	if(Table[index].search(S) == false)
 	{
 		return -1;
@@ -55,11 +88,43 @@ int HashTable::search(Song S) const
 	}
 }
 
-void HashTable::insert(Song S)
+void HashTable::insert(Song S, int searchType)
 {
-	int index = hash(S.getName());
-
-		Table[index].insert(S);
+	string field;
+	if(searchType == 1)
+	{
+		field = S.getName();
+	}
+		else if(searchType == 2)
+	{
+		field = S.getAlbum();
+	}
+		else if(searchType == 3)
+	{
+		field = S.getYear();
+	}
+	else if(searchType == 4)
+	{
+		field = S.getMonth();
+	}
+	else if(searchType == 5)
+	{
+		field = S.getDay();
+	}
+	else if(searchType == 6)
+	{
+		field = S.isOnChart();
+	}
+	else if(searchType == 7)
+	{
+		field = S.getLength();
+	}
+	else if(searchType == 8)
+	{
+		field = S.getViews();
+	}
+	int index = hash(field);
+	Table[index].insert(S);
 
 }
 
@@ -92,11 +157,22 @@ void HashTable::printTable(ostream &out) const
 		Song S = Table[i].getRoot();
 		//out << "Books in Catalouge" <<endl <<endl;
 		//out << "Group: " << i+1 << endl;
-		out << S.getName() << " by Michael Jackson" <<endl;
+		cout << "Index " << i <<": ";
+		out << S.getName() <<endl;
 		//out << "$"  << B.get_price() <<endl;
 		//out << "ISBN: " << B.get_isbn() <<endl;
 		//out << "+ " << Table[i].getSize()-1 << " many more similar books" << endl <<endl;
 	}
+}
+
+void HashTable::printResults(ostream &out, int index, string search, int searchType)
+{
+	Table[index].results(search, searchType, out);
+}
+
+void HashTable::getFullResults(ostream &out, int index, string search)
+{
+	Table[index].getFullResults(search, out);
 }
 
 
