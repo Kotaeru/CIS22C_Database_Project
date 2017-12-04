@@ -96,7 +96,7 @@ void readIn(ifstream &inputfile, int searchType, HashTable &HT) {
 
 		//bstobj.insert(S1);
 	}
-	cout << counter << " songs read in." <<endl;
+	//cout << counter << " songs read in." <<endl;
 	/*for(int i = 0; i < 30; i++)
 	{
 		cout << "Index " << i <<endl;

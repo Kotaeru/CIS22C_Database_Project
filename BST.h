@@ -89,7 +89,7 @@ private:
     //recursive helper function to the height function
     //returns the height of the tree
 
-    void getResults(Node* root, string usersearch, int searchtype, ostream& out);
+    void getResults(Node* root, string usersearch, int searchtype, ostream& out, int& found);
     //checks the BST at a index and pulls all the nodes that match into a results BST
 
 public:
@@ -156,13 +156,13 @@ public:
     //calls the postOrderPrint function to print out the values
     //stored in the BST
 
-    void results(string userSearch, int searchtype, ostream& out);
+    void results(string userSearch, int searchtype, ostream& out, int& found);
     //wrapper function for getResults
     //stores all results in a new BST
 
-    void fullResults(string usersearch, ostream& out, Node* root);
+    void fullResults(string usersearch, ostream& out, Node* root, int& found);
 
-    void getFullResults(string search, ostream& out);
+    void getFullResults(string search, ostream& out, int& found);
 };
 
 
@@ -414,7 +414,7 @@ bstdata BST<bstdata>::maximum() const //wrapper
 	}
 
 template<typename bstdata>
-typename BST<bstdata>::Node* BST<bstdata>::deleteNode(Node* root, bstdata data)//private helper of remove
+typename BST<bstdata>::Node* BST<bstdata>::deleteNode(Node* root, bstdata data)
 
 	{
 
@@ -491,7 +491,7 @@ typename BST<bstdata>::Node* BST<bstdata>::deleteNode(Node* root, bstdata data)/
 	}
 
 template<typename bstdata>
-void BST<bstdata>::remove(bstdata data)//wrapper
+void BST<bstdata>::remove(bstdata data)
 	{
 		deleteNode(root,data);
 	}
@@ -562,7 +562,7 @@ bstdata BST<bstdata>::getRoot() const
 	}
 
 template<typename bstdata>
-void BST<bstdata>::getResults(Node* root, string usersearch, int searchType, ostream& out)
+void BST<bstdata>::getResults(Node* root, string usersearch, int searchType, ostream& out, int& found)
 	{
 		if(root == NULL)
 		{
@@ -602,22 +602,23 @@ void BST<bstdata>::getResults(Node* root, string usersearch, int searchType, ost
 		{
 			field = S1.getViews();
 		}
-		getResults(root->leftchild, usersearch, searchType, out);
+		getResults(root->leftchild, usersearch, searchType, out, found);
 		if(usersearch == field)
 		{
 		out << root->data;
+		found = 1;
 		}
-		getResults(root->rightchild, usersearch, searchType, out);
+		getResults(root->rightchild, usersearch, searchType, out, found);
 	}
 
 template<typename bstdata>
-void BST<bstdata>::results(string userSearch, int searchtype, ostream& out)
+void BST<bstdata>::results(string userSearch, int searchtype, ostream& out, int& found)
 {
-	getResults(root, userSearch, searchtype, out);
+	getResults(root, userSearch, searchtype, out, found);
 }
 
 template<typename bstdata>
-void BST<bstdata>::fullResults(string usersearch, ostream& out, Node* root)
+void BST<bstdata>::fullResults(string usersearch, ostream& out, Node* root, int& found)
 {
 	if(root == NULL)
 	{
@@ -625,7 +626,7 @@ void BST<bstdata>::fullResults(string usersearch, ostream& out, Node* root)
 	}
 	Song B1;
 	B1 = root->data;
-	fullResults(usersearch, out, root->leftchild);
+	fullResults(usersearch, out, root->leftchild, found);
 	if(B1.getName() == usersearch)
 	{
 		out <<"Title: " << B1.getName() <<endl;
@@ -635,14 +636,16 @@ void BST<bstdata>::fullResults(string usersearch, ostream& out, Node* root)
 		out << "Length: " << B1.getLength() <<endl;
 		out << "Youtube Views: " << B1.getViews() <<endl;
 		out << "Lyrics: " << B1.getLyrics()<<endl <<endl;
+		found = 1;
+		return;
 	}
-	fullResults(usersearch, out, root->rightchild);
+	fullResults(usersearch, out, root->rightchild, found);
 }
 
 template<typename bstdata>
-void BST<bstdata>::getFullResults(string search, ostream& out)
+void BST<bstdata>::getFullResults(string search, ostream& out, int& found)
 {
-	fullResults(search, out, root);
+	fullResults(search, out, root, found);
 }
 
 

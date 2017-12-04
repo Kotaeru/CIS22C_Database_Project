@@ -165,14 +165,14 @@ void HashTable::printTable(ostream &out) const
 	}
 }
 
-void HashTable::printResults(ostream &out, int index, string search, int searchType)
+void HashTable::printResults(ostream &out, int index, string search, int searchType, int& found)
 {
-	Table[index].results(search, searchType, out);
+	Table[index].results(search, searchType, out, found);
 }
 
-void HashTable::getFullResults(ostream &out, int index, string search)
+void HashTable::getFullResults(ostream &out, int index, string search, int& found)
 {
-	Table[index].getFullResults(search, out);
+	Table[index].getFullResults(search, out, found);
 }
 
 

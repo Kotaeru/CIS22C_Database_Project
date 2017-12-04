@@ -91,9 +91,9 @@ public:
     //+<number of elements at this index> -1 more similar book(s)
     //<new line><new line><new line>
 
-    void printResults(ostream& out, int index, string search, int searchType);
+    void printResults(ostream& out, int index, string search, int searchType, int& found);
 
-    void getFullResults(ostream& out, int index, string search);
+    void getFullResults(ostream& out, int index, string search, int& found);
 
 private:
     static const int SIZE = 30;
