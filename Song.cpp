@@ -59,21 +59,6 @@ string Song::getDate()
 	return dateData;
 }
 
-string Song::getYear()
-{
-	return year;
-}
-
-string Song::getMonth()
-{
-	return month;
-}
-
-string Song::getDay()
-{
-	return day;
-}
-
 string Song:: getLyrics()
     {return songlyrics;}
 
@@ -102,15 +87,15 @@ void Song::setName(string title)
 {songName=title;}
  void Song::setAlbum(string album)
    {songAlbum= album;}
- void Song::setYear(string y)
+ void Song::setYear(int y)
    {year = y;}
    void Song:: setLyrics(string lyr)
    {songlyrics=lyr;}
-   void Song:: setCharts(string oC)
+   void Song:: setCharts(bool oC)
    {onChart=oC;}
-   void Song:: setLength(string len)
+   void Song:: setLength(int len)
    {length=len;}
-   void Song:: setViews(string viw)
+   void Song:: setViews(int viw)
    {views=viw;}
   // void Song:: setHits(int kH)
   // {keyHits=kH;}
@@ -119,15 +104,13 @@ void Song::setName(string title)
 
 
 bool Song::operator==(const Song& song) {
-    return (songName == song.songName || songAlbum == song.songAlbum || year == song.year || onChart == song.onChart || length == song.length || views == song.views);
+    return (songName == song.songName && songAlbum==song.songAlbum);
 }
 
 
 ostream& operator<<(ostream& os, const Song& song)
 {
-	os <<endl <<"Title: " << song.songName <<endl;
-	os <<"Album: " << song.songAlbum <<endl;
-	os <<"Publish Date: " << song.month << "/" << song.day << "/" << song.year <<endl;
+	os << song.songName << " by " << song.songAlbum << endl;
 	//os <<"$"<<song.price << endl;
 	//os <<"ISBN#: " <<song.isbn<< endl;
 	return os;
@@ -137,7 +120,7 @@ ostream& operator<<(ostream& os, const Song& song)
 bool Song:: operator<(const Song& song)
 {
 
-	return (songName < song.songName);
+	return (songName < song.songName || ( songName == song.songName && songAlbum < song.songAlbum ));
 
 
 }
@@ -145,6 +128,5 @@ bool Song:: operator<(const Song& song)
 
 bool Song:: operator>(const Song& song)
 {
-	return (songName > song.songName);
+	return (songName > song.songName || ( songName == song.songName && songAlbum > song.songAlbum ));
 }
-

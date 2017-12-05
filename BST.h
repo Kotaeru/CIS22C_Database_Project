@@ -19,7 +19,6 @@
 #include <string>
 #include <assert.h>
 #include "Song.h"
-#include<iostream>
 
 using namespace std;
 template<typename bstdata>
@@ -29,12 +28,14 @@ private:
         bstdata data;
         Node* leftchild;
         Node* rightchild;
+        bool visited;
 
         Node(bstdata newdata)
         {
             data = newdata;
             leftchild = NULL;
             rightchild = NULL;
+            visited = false;
         }
     };
 
@@ -64,7 +65,7 @@ private:
     //private helper function for the destructor
     //recursively frees the memory in the BST
 
-    bool searchNode(Node* root, bstdata data)const;
+    BST<bstdata> searchNode(Node* root, bstdata data)const;	//work on this one
     //recursive helper function to search
     //returns whether the value is found in the tree
 
@@ -88,9 +89,6 @@ private:
     int getHeight(Node* root) const;
     //recursive helper function to the height function
     //returns the height of the tree
-
-    void getResults(Node* root, string usersearch, int searchtype, ostream& out, int& found);
-    //checks the BST at a index and pulls all the nodes that match into a results BST
 
 public:
 
@@ -128,7 +126,7 @@ public:
     int getHeight() const;
     //returns the height of the tree
 
-    bool search(bstdata data) const;
+    BST<bstdata> search(bstdata data) const;		//do this one.
     //returns whether the data is found in the tree
     //pre: !isEmpty()
 
@@ -155,14 +153,6 @@ public:
     void postOrderPrint(ostream& out) const;
     //calls the postOrderPrint function to print out the values
     //stored in the BST
-
-    void results(string userSearch, int searchtype, ostream& out, int& found);
-    //wrapper function for getResults
-    //stores all results in a new BST
-
-    void fullResults(string usersearch, ostream& out, Node* root, int& found);
-
-    void getFullResults(string search, ostream& out, int& found);
 };
 
 
@@ -209,7 +199,11 @@ template<typename bstdata>
 void BST<bstdata>:: insertNode(Node* root, bstdata data)//private version
 	{
 		Node* N = new Node(data);// IS THIS OK!>!?!?!? to not pass in root
-		if(root->data>data)
+		if(root==NULL)
+		{root=N;}
+		if(root->data== data)//base case b/c we don't want duplicates
+			return;
+		else if(root->data>data)
 			{
 				if(root->leftchild==NULL)
 					{root->leftchild=N;}
@@ -243,21 +237,14 @@ void BST<bstdata>::insert(bstdata data) //wrapper
 template<typename bstdata>
 void  BST<bstdata>:: inOrderPrint(ostream& out, Node* root) const //private
 	{
-		/*if(root->data == NULL)
-		{
-			out << "Null thing"<<endl;
+		if(root==NULL)
 			return;
-		}*/
-		if(root == NULL)
-		{
-			return;
-		}
-		else
-		{
-			inOrderPrint(out, root->leftchild);
-			out << root->data;
-			inOrderPrint(out,root->rightchild);
-		}
+		if(root!=NULL)
+			{
+				inOrderPrint(out, root->leftchild);
+				out << root->data <<endl;
+				inOrderPrint(out,root->rightchild);
+			}
 	}
 
 
@@ -338,46 +325,80 @@ void  BST<bstdata>:: freeNode(Node* root) //private helper of destructor
 
 	}
 
-template<typename bstdata>
-bool BST<bstdata>::searchNode(Node* root, bstdata data)const //private helper of search(recursive)
+template<typename bstdata>	//this one is edited. // john - make while loop in main instead and use the "visited" flag,
+							//which is an attribute of each node now, to continue searching for valid results based on keyword
+BST<bstdata> BST<bstdata>::searchNode(Node* root, string keyword,int num) const //private helper of search(recursive) //john - changed string data to string keyword to avoid mix up
 	{
-		//cout << root->data << endl;
-//		if(root->data == data)
-//			return true;
+	string tempSong;
+/*	if(num == 1){
+		tempSong = root->data->songName;	//title
+	} else if (num == 2){
+		tempSong = root->data->songAlbum; //album
+	} else if (num == 3){
+		tempSong = root->data->year; //album
+	} else if (num == 4){
+		tempSong = root->data->month; //album
+	} else if (num == 5){
+		tempSong = root->data->day; //album
+	} else if (num == 6){
+		tempSong = root->data->onChart; //album
+	} else if (num == 7){
+		tempSong = root->data->length; //album
+	} else if (num == 8){
+		tempSong = root->data->views; //album
+	}
+*/ //john - i understand the logic here, but root->data->whatever isn't actually grabbing that data right now I think so I commented it out for now
+
+	//cout << root->data << endl;
+//		if(root->data == data && root->visited == false) { //I would use lines 352-371 over lines 374-384
+//			visited = true; // used in conjunction with the "while loop" mentioned below
+//			return root->data;
+//		}
 //
 //		if(root->data< data)
 //			{
 //				if(root->leftchild==NULL)
 //					{
-//					return false;}
+//					return;}
 //				else
-//					{return searchNode(root->leftchild,data);}
+//					{return searchNode(root->leftchild,data,num);}
 //			}
 //		else//root->data>data
 //			{
 //				if(root->rightchild==NULL)
 //					{cout << "test";
-//					return false;}
+//					return;}
 //				else
-//					{return searchNode(root->rightchild,data);}
+//					{return searchNode(root->rightchild,data,num);}
 //			}
-		if(root==NULL)
-		{
-			cout << "Null end" <<endl;
-			return false;
-		}
-		else if(data == root -> data){
-			cout << "this is good"<<endl;
-			return true;
-		}
-		else if(data<root->data)
+
+
+//		if(root==NULL)
+//		{
+//			return ;
+//		}else if(root!=NULL)
+//		{
+//			searchNode(root->leftchild,data, num);
+//			if(tempSong == data){
+//				insert(); //for inverted index or something else?
+//			}
+//			searchNode(root->rightchild,data, num);
+//		}
+
+		/*
+		else if(tempSong == data){
+			searchNode(root->leftchild, data, num);
+			searchNode(root->rightchild, data, num);
+			return ;
+		}else if(data < root->data)
 		{
 			return searchNode(root->leftchild,data);
 		}
-		else if(data>root->data)
+		else if(data > root->data)
 		{
 			return searchNode(root->rightchild,data); //only changes if delete is actually used
-		}
+		}*/
+		return false;
 	}
 
 template<typename bstdata>
@@ -414,7 +435,7 @@ bstdata BST<bstdata>::maximum() const //wrapper
 	}
 
 template<typename bstdata>
-typename BST<bstdata>::Node* BST<bstdata>::deleteNode(Node* root, bstdata data)
+typename BST<bstdata>::Node* BST<bstdata>::deleteNode(Node* root, bstdata data)//private helper of remove
 
 	{
 
@@ -454,9 +475,6 @@ typename BST<bstdata>::Node* BST<bstdata>::deleteNode(Node* root, bstdata data)
 						root=root->rightchild;
 						delete temp;
 						return root;
-
-
-
 					}
 				else
 					{
@@ -491,7 +509,7 @@ typename BST<bstdata>::Node* BST<bstdata>::deleteNode(Node* root, bstdata data)
 	}
 
 template<typename bstdata>
-void BST<bstdata>::remove(bstdata data)
+void BST<bstdata>::remove(bstdata data)//wrapper
 	{
 		deleteNode(root,data);
 	}
@@ -553,101 +571,9 @@ bool BST<bstdata>:: isEmpty() const
 template<typename bstdata>
 bstdata BST<bstdata>::getRoot() const
 	{
-		Song B1;
-		if(root == NULL)
-		{
-			return B1;
-		}
+		assert(root!=NULL);
 		return root->data;
 	}
-
-template<typename bstdata>
-void BST<bstdata>::getResults(Node* root, string usersearch, int searchType, ostream& out, int& found)
-	{
-		if(root == NULL)
-		{
-			return;
-		}
-		Song S1 = root->data;
-		string field;
-		if(searchType == 1)
-		{
-			field = S1.getName();
-		}
-		else if(searchType == 2)
-		{
-			field = S1.getAlbum();
-		}
-		else if(searchType == 3)
-		{
-			field = S1.getYear();
-		}
-		else if(searchType == 4)
-		{
-			field == S1.getMonth();
-		}
-		else if(searchType == 5)
-		{
-			field = S1.getDay();
-		}
-		else if(searchType == 6)
-		{
-			field == S1.isOnChart();
-		}
-		else if(searchType == 7)
-		{
-			field = S1.getLength();
-		}
-		else if(searchType == 8)
-		{
-			field = S1.getViews();
-		}
-		getResults(root->leftchild, usersearch, searchType, out, found);
-		if(usersearch == field)
-		{
-		out << root->data;
-		found = 1;
-		}
-		getResults(root->rightchild, usersearch, searchType, out, found);
-	}
-
-template<typename bstdata>
-void BST<bstdata>::results(string userSearch, int searchtype, ostream& out, int& found)
-{
-	getResults(root, userSearch, searchtype, out, found);
-}
-
-template<typename bstdata>
-void BST<bstdata>::fullResults(string usersearch, ostream& out, Node* root, int& found)
-{
-	if(root == NULL)
-	{
-		return;
-	}
-	Song B1;
-	B1 = root->data;
-	fullResults(usersearch, out, root->leftchild, found);
-	if(B1.getName() == usersearch)
-	{
-		out <<"Title: " << B1.getName() <<endl;
-		out << "Album: " << B1.getAlbum() <<endl;
-		out << "Publish Date: " <<B1.getDate() <<endl;
-		out << "Reached Charts: " << B1.isOnChart() <<endl;
-		out << "Length: " << B1.getLength() <<endl;
-		out << "Youtube Views: " << B1.getViews() <<endl;
-		out << "Lyrics: " << B1.getLyrics()<<endl <<endl;
-		found = 1;
-		return;
-	}
-	fullResults(usersearch, out, root->rightchild, found);
-}
-
-template<typename bstdata>
-void BST<bstdata>::getFullResults(string search, ostream& out, int& found)
-{
-	fullResults(search, out, root, found);
-}
-
 
 
 
