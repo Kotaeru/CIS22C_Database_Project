@@ -1,5 +1,4 @@
-2 Bad;HIStory: Past, Present and Future, Book I;1995;06;16;
-Told me that you're doin' wrong
+2 Bad;HIStory: Past, Present and Future, Book I;1995;06;16;Told me that you're doin' wrong
 Word out shockin' all alone
 Cryin' wolf ain't like a man
 Throwin' rocks to hide your hands
@@ -78,7 +77,7 @@ Too bad too bad about it
 Why don't you scream and shout it
 Too bad too bad about it
 Why don't you just scream and shout it
-Too bad too bad about it;false;4:50;219,501;0;
+Too bad too bad about it;false;4:50;219,501;
 2,000 Watts;Invincible;2001;10;31;
 Bass note, treble, stereo control, how low you go
 Just enough to make your juices flow
@@ -100,15 +99,13 @@ Too much of that, fuse blown
 Be careful what you say don't overload
 Two thousand watts, eight ohms, two hundred volts, real strong
 Too much of that, fuse blown
-Be careful what you say don't overload;false;4:24;81,648;0;
-A Brand New Day;The Wiz (Original Motion Picture Soundtrack);1978;10;24;
-Everybody look around
+Be careful what you say don't overload;false;4:24;81,648;
+A Brand New Day;The Wiz (Original Motion Picture Soundtrack);1978;10;24;Everybody look around
 'Cause there's a reason to rejoice you see
 Everybody come out
 And let's commence to singing joyfully
 Everybody look up
 And feel the hope that we've been waiting for
-
 Everybody's glad
 Because our silent fear and dread is gone
 Freedom, you see, has got our hearts singing so joyfully
@@ -118,27 +115,6 @@ Can't you feel a brand new day?
 Can't you feel a brand new day?
 Can't you feel a brand new day?
 Can't you feel a brand new day?
-
-Everybody be glad
-Because the sun is shining just for us
-Everybody wake up
-Into the morning into happiness
-
-Hello world
-It's like a different way of living now
-And thank you world
-We always knew that we'd be free somehow
-In harmony
-And show the world that we've got liberty
-
-It's such a change
-For us to live so independently
-Freedom, you see, has got our hearts singing so joyfully
-Just look about
-You owe it to yourself to check it out
-Can't you feel a brand new day?
-Can't you feel a brand new day?
-
 Everybody be glad
 Because the sun is shining just for us
 Everybody wake up
@@ -149,7 +125,23 @@ And thank you world
 We always knew that we'd be free somehow
 In harmony
 And show the world that we've got liberty
-
+It's such a change
+For us to live so independently
+Freedom, you see, has got our hearts singing so joyfully
+Just look about
+You owe it to yourself to check it out
+Can't you feel a brand new day?
+Can't you feel a brand new day?
+Everybody be glad
+Because the sun is shining just for us
+Everybody wake up
+Into the morning into happiness
+Hello world
+It's like a different way of living now
+And thank you world
+We always knew that we'd be free somehow
+In harmony
+And show the world that we've got liberty
 It's such a change
 For us to live so independently
 Freedom, you see, has got our hearts singing so joyfully
@@ -158,9 +150,8 @@ You owe it to yourself to check it out
 Can't you feel a brand new day?
 Can't you feel a brand new day?
 Can't you feel a brand new day?
-Can't you feel a brand new day?;false;7:48;2,834;0;
-Another Part Of Me;Bad;1988;07;11;
-We're takin' over
+Can't you feel a brand new day?;false;7:48;2,834;
+Another Part Of Me;Bad;1988;07;11;We're takin' over
 We have the truth
 This is the mission to see it through
 Don't point your finger
@@ -197,9 +188,8 @@ You're just another part of me
 Another part of me
 We're taking over
 This is the truth, baby
-Another part of me;true;3:55;11,453;0;
-Baby Be Mine;Thriller;1982;11;30;
-I don't need no dreams when I'm by your side
+Another part of me;true;3:55;11,453;
+Baby Be Mine;Thriller;1982;11;30;I don't need no dreams when I'm by your side
 Every moment takes me to paradise
 Darlin', let me hold you
 Warm you in my arms and melt your fears away
@@ -246,9 +236,8 @@ So baby, be mine, baby, be mine
 You're everything this world could be to me
 C'mon, girl, c'mon girl
 So baby, be mine
-You're everything this world could be to me;false;4:20;255,833;0;
-Bad;Bad;1987;09;07;
-Your butt is mine
+You're everything this world could be to me;false;4:20;255,833;
+Bad;Bad;1987;09;07;Your butt is mine
 Gonna tell you right
 Just show your face
 In broad daylight
@@ -320,9 +309,8 @@ And the whole world has to
 Answer right now
 Just to tell you once again
 Who's bad
-Who's bad?;true;4:07;675,711;0;
-Beat It;Thriller;1983;02;18;
-They told him don't you ever come around here
+Who's bad?;true;4:07;675,711;
+Beat It;Thriller;1983;02;18;They told him don't you ever come around here
 Don't want to see your face, you better disappear
 The fire's in their eyes and their words are really clear
 So beat it, just beat it
@@ -373,9 +361,8 @@ No one wants to be defeated
 Showin' how funky and strong is your fight
 It doesn't matter who's wrong or right
 Just beat it, beat it
-Beat it, beat it, beat it;true;4:58;287,084,568;0;
-Ben;Ben;1972;08;04;
-Ben, the two of us need look no more
+Beat it, beat it, beat it;true;4:58;287,084,568;
+Ben;Ben;1972;08;04;Ben, the two of us need look no more
 We both found what we were looking for
 With a friend to call my own
 I'll never be alone, and you, my friend, will see
@@ -393,9 +380,8 @@ I wish they would try to'
 I'm sure they'd think again if they had a friend like Ben
 A friend like Ben
 (Like Ben)
-Like Ben;true;2:47;6,807;0;
-Billie Jean;Thriller;1983;01;02;
-She was more like a beauty queen from a movie scene
+Like Ben;true;2:47;6,807;
+Billie Jean;Thriller;1983;01;02;She was more like a beauty queen from a movie scene
 I said don't mind, but what do you mean, I am the one
 Who will dance on the floor in the round
 She said I am the one, who will dance on the floor in the round
@@ -446,9 +432,8 @@ Billie Jean is not my lover
 Billie Jean is not my lover
 Billie Jean is not my lover (don't Billie Jean)
 Billie Jean is not my lover
-Billie Jean is not my lover;true;4:55;345,298,606;0;
-Black Or White;Dangerous;1991;11;11;
-I took my baby on a Saturday bang
+Billie Jean is not my lover;true;4:55;345,298,606;
+Black Or White;Dangerous;1991;11;11;I took my baby on a Saturday bang
 Boy is that girl with you 
 Yes we're one and the same
 Now I believe in miracles
@@ -495,9 +480,8 @@ Ooh, ooh
 Yea, yea, yea now
 It's black, it's white
 It's tough for them to get by
-It's black, it's white, (x3) whoo;true;6:22;212,198,453;0;
-Blood On The Dancefloor;Blood On The Dance Floor - HIStory In The Mix;1997;03;21; 
-She got your number
+It's black, it's white, (x3) whoo;true;6:22;212,198,453;
+Blood On The Dancefloor;Blood On The Dance Floor - HIStory In The Mix;1997;03;21;She got your number
 She know your game
 She put you under
 It's so insane
@@ -573,9 +557,8 @@ It was blood on the dance floor
 (blood on the dance floor)
 And I just can't take it
 The girl won't break it
-Ooo…;true;4:16;38,091,716;0;
-Break Of Dawn;Invincible;2001;10;30;
-Hold my hand, feel the touch of your body cling to mine
+Ooo;true;4:16;38,091,716;
+Break Of Dawn;Invincible;2001;10;30;Hold my hand, feel the touch of your body cling to mine
 You and me, makin' love all the way through another night
 I remember you and I walking though the park at night
 Kiss and touch, nothing much, let it blow just touch and go
@@ -619,9 +602,8 @@ I won't stop 'til break of dawn makin' love
 I don't want the sun to shine I want to make love
 Just this magic in your eyes and in my heart
 I don't know what I'm gonna do I can't stop lovin' you
-I won't stop 'til break of dawn makin' love;false;5:33;355,473;0;
-Burn This Disco Out;Off the Wall;1979;08;10;
-There's a steam beat
+I won't stop 'til break of dawn makin' love;false;5:33;355,473;
+Burn This Disco Out;Off the Wall;1979;08;10;There's a steam beat
 And it's comin' after you
 You can take it
 If you only let your feelings through 
@@ -670,9 +652,8 @@ Groove all night
 Keep the boogie alright
 Get that sound
 Everybody just get on down
-Gonna dance, gonna shout, gonna burn this disco out;false;3:41;48,865;0;
-Butterflies;Invincible;2001;10;30;
-All you gotta do is walk away and pass me by
+Gonna dance, gonna shout, gonna burn this disco out;false;3:41;48,865;
+Butterflies;Invincible;2001;10;30;All you gotta do is walk away and pass me by
 Don't acknowledge my smile when I try to say hello to you, yeah
 And all you gotta do is not answer my calls when
 I'm trying to get through
@@ -704,9 +685,8 @@ And I wish that I could be with you tonight
 You give me butterflies inside, inside and I
 I just want to touch and kiss
 And I wish that I could be with you tonight
-You give me butterflies inside, inside and I;true;4:40;302,825;0;
-Call On Me;Farewell My Summer Love;1984;05;15;
-There goes the sunshine
+You give me butterflies inside, inside and I;true;4:40;302,825;
+Call On Me;Farewell My Summer Love;1984;05;15;There goes the sunshine
 Here comes the rain
 And heartache things
 What can I do but wait for you
@@ -746,9 +726,8 @@ Yes, happiness
 Wish you for elsewhere
 We remember this should
 You write and it's not there
-Call on me;false;3:39;210;0;
-Can’t Let Her Get Away;Dangerous;1991;11;26;
-I thought she had to have it
+Call on me;false;3:39;210;
+Can't Let Her Get Away;Dangerous;1991;11;26;I thought she had to have it
 Since the first time she came
 Who knows the situation
 Mysteries do remain
@@ -815,9 +794,8 @@ I can't let her get away
 I can't let
 I can't let her get away
 I can't let
-I can't let her get away;false;5:00;315,760;0;
-Childhood;HIStory - Past, Present And Future - Book 1;1995;06;16;
-Have you seen my Childhood?
+I can't let her get away;false;5:00;315,760;
+Childhood;HIStory - Past, Present And Future - Book 1;1995;06;16;Have you seen my Childhood?
 I'm searching for the world that I come from
 'Cause I've been looking around
 In the lost and found of my heart...
@@ -825,38 +803,30 @@ No one understands me
 They view it as such strange eccentricities...
 'Cause I keep kidding around
 Like a child, but pardon me...
-
 People say I'm not okay
 'Cause I love such elementary things...
 It's been my fate to compensate,
 for the Childhood
 I've never known...
-
 Have you seen my Childhood?
 I'm searching for that wonder in my youth
 Like pirates in adventurous dreams,
 Of conquest and kings on the throne...
-
 Before you judge me, try hard to love me,
 Look within your heart then ask,
 Have you seen my Childhood?
-
 People say I'm strange that way
 'Cause I love such elementary things,
 It's been my fate to compensate,
 for the Childhood I've never known...
-
 Have you seen my Childhood?
 I'm searching for that wonder in my youth
 Like fantastical stories to share
 The dreams I would dare, watch me fly...
-
 Before you judge me, try hard to love me.
 The painful youth I've had
-
-Have you seen my Childhood…;false;4:29;2,867,498;0;
-Cinderella Stay Awhile;Forever, Michael;1975;01;16;
-Cinderella, stay awhile
+Have you seen my Childhood;false;4:29;2,867,498;
+Cinderella Stay Awhile;Forever, Michael;1975;01;16;Cinderella, stay awhile
 You're the one that I've been lookin' for
 Cinderella, bring your smile
 All around me sunbeams start to fall
@@ -897,9 +867,8 @@ Cinderella, I would die
 Cinderella, don't you go, well my
 I wanna be your fella, Cinderella
 I wanna be your fella, alright
-Don't you go, Cinderella;false;3:10;1,065;0;
-Come Together;HIStory - Past, Present And Future - Book 1;1995;06;19;
-Here come ol' flat top
+Don't you go, Cinderella;false;3:10;1,065;
+Come Together;HIStory - Past, Present And Future - Book 1;1995;06;19;Here come ol' flat top
 He come groovin' up slowly
 He's got Joo Joo eyeball
 He one holy roller
@@ -926,9 +895,8 @@ He's got muddy water
 He one Mojo filter
 He say "One and one and one is three"
 Got to be good looking 'cause he's so hard to see
-Come together right now over me;false;5:41;6,212,332;0;
-Corner Of The Sky;Skywriter;1973;03;29;
-Everything has its season
+Come together right now over me;false;5:41;6,212,332;
+Corner Of The Sky;Skywriter;1973;03;29;Everything has its season
 Everything has its time
 Show me a reason
 And I'll soon show you a rhyme
@@ -936,12 +904,10 @@ Cats sit on the window sill
 Children sit in the show
 Why do I feel
 I don't fit in anywhere I go
-
 Rivers belong where they can ramble
 Eagles belong where they can fly
 I've got to be where my spirit can run free
 Gotta find my corner of the sky
-
 Every man has his daydreams
 Every man has his goal
 People like the way dreams have of sticking to the soul
@@ -949,13 +915,11 @@ Thunder comes after lightning
 Nightingales have their song
 And don't you see I want my life
 To be something more than none
-
 Rivers belong where they can ramble
 Eagles belong where they can fly
 I've got to be where my spirit can run free
 Gotta find my corner of the sky
 Of the sky
-
 So many men seem desperate
 'Cause they got something small
 But I, I won't rest
@@ -964,7 +928,6 @@ So don't ask where I'm goin'
 But listen when I'm gone
 Always you'll hear me singin'
 Softly to the dawn
-
 Rivers belong where they can ramble
 Eagles belong where they can fly
 I've got to be where my spirit can run free
@@ -980,54 +943,44 @@ Gotta find my corner, yes, I do
 (Gotta find)
 Gotta find my corner
 (Gotta find)
-Gotta find my corner of the sky;false;3:41;49,305;0;
-Cry;Invincible;2001;10;30;
-[Verse 1]
+Gotta find my corner of the sky;false;3:41;49,305;
+Cry;Invincible;2001;10;30;[Verse 1]
 Somebody shakes when the wind blows
 Somebody's missing a friend, hold on
 Somebody's lacking a hero
 And they have not a clue
 When it's all gonna end
-
 [Verse 2]
 Stories buried and untold
 Someone is hiding the truth, hold on
 When will this mystery unfold
 And will the sun ever shine
 In the blind man's eyes when he cries?
-
 [Chorus:]
 You can change the world (I can't do it by myself)
 You can touch the sky (Gonna take somebody's help)
 You're the chosen one (I'm gonna need some kind of sign)
 If we all cry at the same time tonight
-
 [Verse 3]
 People laugh when they're feelin sad
 Someone is taking a life, hold on
 Respect to believe in your dreams
 Tell me where were you
 when your children cried last night?
-
 [Verse 4]
 Faces fill with madness
 Miracles unheard of, hold on
 Faith is found in the winds
 All we have to do
 Is reach for the truth
-
 [Chorus]
-
 And when that flag blows
 There'll be no more wars
 And when all calls
 I will answer all your prayers
-
 [Chorus x3]
-
-Change the world;false;4:57;15,137,493;0;
-D.s.;HIStory - Past, Present And Future - Book 1;1995;06;16;
-They want to get my ass
+Change the world;false;4:57;15,137,493;
+D.s.;HIStory - Past, Present And Future - Book 1;1995;06;16;They want to get my ass
 Dead or alive
 You know he really tried to take me down by surprise
 I bet he missioned with the CIA
@@ -1058,9 +1011,8 @@ Did he say to either do it or die?
 Tom Sneddon is a cold man
 Tom Sneddon is a cold man
 Tom Sneddon is a cold man
-Tom Sneddon is a cold man;false;4:51;175,266;0;
-Dangerous;Dangerous;1991;11;26;
-The way she came into the place
+Tom Sneddon is a cold man;false;4:51;175,266;
+Dangerous;Dangerous;1991;11;26;The way she came into the place
 I knew right then and there
 There was something different
 About this girl
@@ -1170,9 +1122,8 @@ I have to pray to god
 Lust can blind
 It's a passion in my soul
 But you're no damn lover
-Friend of mine;false;7:00;1,576,897;0;
-Dirty Diana;Bad;1988;04;18;
-You never make me stay
+Friend of mine;false;7:00;1,576,897;
+Dirty Diana;Bad;1988;04;18;You never make me stay
 So take your weight off of me
 I know your every move
 So won't you just let me be
@@ -1250,9 +1201,8 @@ Dirty Diana
 Come on!
 Come on!
 Come on!
-Come on!;true;5:05;46,950,128;0;
-Don’t Let It Get You Down;Farewell My Summer Love;1984;05;15;
-Don't let it get you down
+Come on!;true;5:05;46,950,128;
+Don't Let It Get You Down;Farewell My Summer Love;1984;05;15;Don't let it get you down
 When you're not on top
 When a stumble is tool
 Puts us up and never stops, no
@@ -1299,4 +1249,4 @@ Don't let it, let it, let it
 Don't let it get you down
 Don't let it get you down
 Come on, baby
-Don't let it get you down;false;3:00;3,199;0;
+Don't let it get you down;false;3:00;3,199;
