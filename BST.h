@@ -19,7 +19,6 @@
 #include <string>
 #include <assert.h>
 #include "Song.h"
-#include<iostream>
 
 using namespace std;
 template<typename bstdata>
@@ -41,7 +40,7 @@ private:
     Node* root;
 
     /**Private helper functions*/
-    void insertNode(Node* root, bstdata data);
+    void insertNode(Node* root, bstdata data, ostream& out);
     //private helper function for insert
     //recursively inserts a value into the BST
 
@@ -64,7 +63,7 @@ private:
     //private helper function for the destructor
     //recursively frees the memory in the BST
 
-    bool searchNode(Node* root, bstdata data)const;
+    bool searchNode(Node* root, bstdata data, bstdata& data2)const;
     //recursive helper function to search
     //returns whether the value is found in the tree
 
@@ -89,8 +88,9 @@ private:
     //recursive helper function to the height function
     //returns the height of the tree
 
-    void getResults(Node* root, string usersearch, int searchtype, ostream& out, int& found);
-    //checks the BST at a index and pulls all the nodes that match into a results BST
+    void getResults(Node* root, string usersearch, ostream& out, int& found);
+
+    void fullResults(string usersearch, ostream& out, Node* root, int& found);
 
 public:
 
@@ -128,13 +128,13 @@ public:
     int getHeight() const;
     //returns the height of the tree
 
-    bool search(bstdata data) const;
+    bool search(bstdata data, bstdata &data2) const;
     //returns whether the data is found in the tree
     //pre: !isEmpty()
 
     /**manipulation procedures*/
 
-    void insert(bstdata data);
+    void insert(bstdata data, ostream& out);
     //inserts new data into the BST
 
     void remove(bstdata data);
@@ -156,11 +156,7 @@ public:
     //calls the postOrderPrint function to print out the values
     //stored in the BST
 
-    void results(string userSearch, int searchtype, ostream& out, int& found);
-    //wrapper function for getResults
-    //stores all results in a new BST
-
-    void fullResults(string usersearch, ostream& out, Node* root, int& found);
+    void results(string userSearch, ostream& out, int& found);
 
     void getFullResults(string search, ostream& out, int& found);
 };
@@ -206,29 +202,36 @@ BST<bstdata>::~BST()
 
 	}
 template<typename bstdata>
-void BST<bstdata>:: insertNode(Node* root, bstdata data)//private version
+void BST<bstdata>:: insertNode(Node* root, bstdata data, ostream& out)//private version
 	{
 		Node* N = new Node(data);// IS THIS OK!>!?!?!? to not pass in root
-		if(root->data>data)
+		if(root==NULL)
+		{root=N;}
+		if(root->data == data)//base case b/c we don't want duplicates
+		{
+			out << "Already within Hashtable" <<endl;
+			return;
+		}
+		else if(root->data>data)
 			{
 				if(root->leftchild==NULL)
 					{root->leftchild=N;}
 				else
-					{insertNode(root->leftchild,data);}
+					{insertNode(root->leftchild,data, out);}
 			}
 		else //root->data>data
 			{
 				if(root->rightchild==NULL)
 					{root->rightchild=N;}
 				else
-					{insertNode(root->rightchild,data);}
+					{insertNode(root->rightchild,data, out);}
 			}
 
 	}
 
 
 template<typename bstdata>
-void BST<bstdata>::insert(bstdata data) //wrapper
+void BST<bstdata>::insert(bstdata data, ostream& out) //wrapper
 	{
 	 	 if (root == NULL)
 	 	 {
@@ -236,28 +239,21 @@ void BST<bstdata>::insert(bstdata data) //wrapper
 	 	 }
 	    else
 	    	{
-	    		insertNode(root, data); //otherwise call the helper function, passing it the root
+	    		insertNode(root, data, out); //otherwise call the helper function, passing it the root
 	    	}
 	}
 
 template<typename bstdata>
 void  BST<bstdata>:: inOrderPrint(ostream& out, Node* root) const //private
 	{
-		/*if(root->data == NULL)
-		{
-			out << "Null thing"<<endl;
+		if(root==NULL)
 			return;
-		}*/
-		if(root == NULL)
-		{
-			return;
-		}
-		else
-		{
-			inOrderPrint(out, root->leftchild);
-			out << root->data;
-			inOrderPrint(out,root->rightchild);
-		}
+		if(root!=NULL)
+			{
+				inOrderPrint(out, root->leftchild);
+				out << root->data <<endl;
+				inOrderPrint(out,root->rightchild);
+			}
 	}
 
 
@@ -339,7 +335,7 @@ void  BST<bstdata>:: freeNode(Node* root) //private helper of destructor
 	}
 
 template<typename bstdata>
-bool BST<bstdata>::searchNode(Node* root, bstdata data)const //private helper of search(recursive)
+bool BST<bstdata>::searchNode(Node* root, bstdata data, bstdata &data2)const //private helper of search(recursive)
 	{
 		//cout << root->data << endl;
 //		if(root->data == data)
@@ -363,27 +359,27 @@ bool BST<bstdata>::searchNode(Node* root, bstdata data)const //private helper of
 //			}
 		if(root==NULL)
 		{
-			cout << "Null end" <<endl;
 			return false;
 		}
 		else if(data == root -> data){
-			cout << "this is good"<<endl;
+			data2 = root->data;
 			return true;
 		}
 		else if(data<root->data)
 		{
-			return searchNode(root->leftchild,data);
+			return searchNode(root->leftchild,data, data2);
 		}
 		else if(data>root->data)
 		{
-			return searchNode(root->rightchild,data); //only changes if delete is actually used
+			return searchNode(root->rightchild,data, data2); //only changes if delete is actually used
 		}
+		return false;
 	}
 
 template<typename bstdata>
-bool BST<bstdata>::search(bstdata data) const//wrapper
+bool BST<bstdata>::search(bstdata data, bstdata &data2) const//wrapper
 	{
-		return searchNode(root, data);
+		return searchNode(root, data, data2);
 	}
 template<typename bstdata>
 bstdata BST<bstdata>::minimum(Node* root) const //private helper of minimum
@@ -414,7 +410,7 @@ bstdata BST<bstdata>::maximum() const //wrapper
 	}
 
 template<typename bstdata>
-typename BST<bstdata>::Node* BST<bstdata>::deleteNode(Node* root, bstdata data)
+typename BST<bstdata>::Node* BST<bstdata>::deleteNode(Node* root, bstdata data)//private helper of remove
 
 	{
 
@@ -491,7 +487,7 @@ typename BST<bstdata>::Node* BST<bstdata>::deleteNode(Node* root, bstdata data)
 	}
 
 template<typename bstdata>
-void BST<bstdata>::remove(bstdata data)
+void BST<bstdata>::remove(bstdata data)//wrapper
 	{
 		deleteNode(root,data);
 	}
@@ -553,68 +549,32 @@ bool BST<bstdata>:: isEmpty() const
 template<typename bstdata>
 bstdata BST<bstdata>::getRoot() const
 	{
-		Song B1;
-		if(root == NULL)
-		{
-			return B1;
-		}
+		assert(root!=NULL);
 		return root->data;
 	}
 
 template<typename bstdata>
-void BST<bstdata>::getResults(Node* root, string usersearch, int searchType, ostream& out, int& found)
+void BST<bstdata>::getResults(Node* root, string usersearch, ostream& out, int& found)
 	{
 		if(root == NULL)
 		{
 			return;
 		}
-		Song S1 = root->data;
-		string field;
-		if(searchType == 1)
-		{
-			field = S1.getName();
-		}
-		else if(searchType == 2)
-		{
-			field = S1.getAlbum();
-		}
-		else if(searchType == 3)
-		{
-			field = S1.getYear();
-		}
-		else if(searchType == 4)
-		{
-			field == S1.getMonth();
-		}
-		else if(searchType == 5)
-		{
-			field = S1.getDay();
-		}
-		else if(searchType == 6)
-		{
-			field == S1.isOnChart();
-		}
-		else if(searchType == 7)
-		{
-			field = S1.getLength();
-		}
-		else if(searchType == 8)
-		{
-			field = S1.getViews();
-		}
-		getResults(root->leftchild, usersearch, searchType, out, found);
-		if(usersearch == field)
+		Song S1;
+		S1.setName(usersearch);
+		getResults(root->leftchild, usersearch, out, found);
+		if(S1 == root->data)
 		{
 		out << root->data;
 		found = 1;
 		}
-		getResults(root->rightchild, usersearch, searchType, out, found);
+		getResults(root->rightchild, usersearch, out, found);
 	}
 
 template<typename bstdata>
-void BST<bstdata>::results(string userSearch, int searchtype, ostream& out, int& found)
+void BST<bstdata>::results(string userSearch, ostream& out, int& found)
 {
-	getResults(root, userSearch, searchtype, out, found);
+	getResults(root, userSearch, out, found);
 }
 
 template<typename bstdata>
@@ -648,7 +608,10 @@ void BST<bstdata>::getFullResults(string search, ostream& out, int& found)
 	fullResults(search, out, root, found);
 }
 
-
-
-
 #endif /* BST_H_ */
+
+
+
+//BST.cpp
+
+

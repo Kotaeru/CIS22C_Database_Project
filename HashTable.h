@@ -1,13 +1,6 @@
 /*
  * HashTable.h
  *
- *  Created on: Nov 22, 2017
- *      Author: Maya
- */
-
-/*
- * HashTable.h
- *
  *  Created on: Nov 18, 2017
  *      Author: Maya & Kyle
  */
@@ -46,14 +39,14 @@ public:
     //returns the count
     //pre: 0<= index < SIZE
 
-    int search(Song b, int searchType) const;
+    int search(Song b) const;
     //Searches for b in the table
     //returns the index at which b is located
     //returns -1 if b is not in the table
 
     /**Manipulation Procedures*/
 
-    void insert(Song b, int searchType);
+    void insert(Song b);
     //inserts a new book into the table
     //calls the hash function on the key to determine
     //the correct bucket
@@ -91,12 +84,14 @@ public:
     //+<number of elements at this index> -1 more similar book(s)
     //<new line><new line><new line>
 
-    void printResults(ostream& out, int index, string search, int searchType, int& found);
+
+    void printResults(ostream& out, int index, string search, int& found);
 
     void getFullResults(ostream& out, int index, string search, int& found);
 
+    void insertAtIndex(Song S, int index);
 private:
-    static const int SIZE = 30;
+    static const int SIZE = 10;
     BST<Song> Table[SIZE];
 };
 
