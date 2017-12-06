@@ -119,7 +119,8 @@ void Song::setName(string title)
 
 
 bool Song::operator==(const Song& song) {
-    return (songName == song.songName || songAlbum == song.songAlbum || year == song.year || onChart == song.onChart || length == song.length || views == song.views);
+    return (songName == song.songName);
+    //|| songAlbum == song.songAlbum || year == song.year || onChart == song.onChart || length == song.length || views == song.views
 }
 
 

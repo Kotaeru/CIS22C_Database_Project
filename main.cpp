@@ -1,167 +1,123 @@
 /*
  * main.cpp
  *
- *  Created on: Nov 13, 2017
+ *  Created on: Dec 5, 2017
  *      Author: Kyle
  */
 
-// ~~~ couts ~~~
-// the "cout << "\n\n"" at the end of each screen is my way of visually separating each screen for now
-
-// main menu
 
 #include<iostream>
+#include<string>
 #include<fstream>
 #include "HashTable.h"
+#include "HashMap.h"
+#include "Song.h"
+#include "BST.h"
+#include "wordID.h"
+#include "HashTable2.h"
 #include "readIn.h"
 
 using namespace std;
 
 int main()
 {
+	int totalViews = 0;
+	int counter = 0;
 	int userChoice = 0;
-	ifstream inputFile;
-	inputFile.open("Songs.txt");
-	string userinput;
-	while(userChoice != 4)
+	int userSearchType = 0;
+	string userSearch;
+	char userLetter;
+	Song S1;
+	HashTable H1; //standard hashtable sorted by title
+	HashTable2 H2; //fancy hashtable thats not sorted in a good way
+	HashMap HM; //list of the words and the indexes
+	wordID WI;
+	BST<Song> B1;
+	ifstream infile;
+	infile.open("Songs.txt");
+	readIn(infile, H1, B1, HM, H2, counter, totalViews);
+	infile.close();
+	cout << "Welcome!" <<endl;
+	while(userChoice != 6)
 	{
-	userChoice = 0;
-	int index = -1;
-	int found = 0;
-	HashTable H1;
-	cout << "Welcome!\n\n";
-	cout << "1) Search by field\n2) Search by keyword\n3) Add or Delete\n4) Quit\n\n";
-	cout << "Enter the number of your choice: ";
-	//*INPUT INT*
-	cin >> userChoice;
-	cout << "\n\n";
-
-	if(userChoice == 1)
-	{
-		// search menu
-		cout << "1) Search by Title\n2) Search by Album\n3) Search by Release Date\n";
-		cout << "\n\nEnter the number of your choice: ";
-		//*INPUT INT*
+		cout << "1) Search\n2) Add a new song\n3) Delete a song\n4) List songs by title\n5) Data Statistics\n6) Quit\n\n";
+		cout << "Please enter the number of your choice: ";
 		cin >> userChoice;
-		if(userChoice == 1)// search screen (be sure to adjust these for each input type if necessary)
+		cin.ignore();
+		if(userChoice == 1)//Search menu
 		{
-			cout <<endl << "Enter the song title: ";
-			cin.ignore();
-			getline(cin, userinput);
-			readIn(inputFile, 1, H1);
-			index = H1.hash(userinput);
-			H1.printResults(cout, index, userinput, 1, found);
-			if(!found)
+			cout << "1)Search by title\n2)Search by keywords\n\n";
+			cout << "Please enter the number of you choice: ";
+			cin >> userSearchType;
+			if(userSearchType == 1)//Search by title
 			{
-				cout << "No songs matching Title" <<endl <<endl;
-			}
-			found = 0;
-		}
-		else if(userChoice == 2)
-		{
-			cout << "Enter the songs Album: ";
-			getline(cin, userinput);
-			readIn(inputFile, 2 , H1);
-			index = H1.hash(userinput);
-			H1.printResults(cout, index, userinput, 2, found);
-			if(!found)
-			{
-				cout << "No songs matching Album" <<endl <<endl;
-			}
-			found = 0;
-		}
-		else if(userChoice == 3)
-		{
-			cout << "1) Search by release year\n2) Search by release month\n";
-			cout << "Enter the number of your choice: ";
-			cin >> userChoice;
-			if(userChoice == 1)
-			{
-				cout << "Enter the songs release year: ";
-				cin >> userinput;
-				readIn(inputFile, 3, H1);
-				H1.hash(userinput);
-				H1.printResults(cout, index, userinput, 3, found);
-				if(!found)
+				cout << "Please enter the title of the song you would like to search for: ";
+				cin.ignore();
+				getline(cin, userSearch);
+				S1.setName(userSearch);
+				if(H1.search(S1) == -1)
 				{
-					cout << "No songs matching Year" <<endl <<endl;
+					cout << "Song not in database!" <<endl;
 				}
-				found = 0;
-			}
-			else if(userChoice == 2)
-			{
-				cout << "Enter the songs release month: ";
-				cin >> userinput;
-				readIn(inputFile, 4, H1);
-				index = H1.hash(userinput);
-				H1.printResults(cout, index, userinput, 4, found);
-				if(!found)
+				else
 				{
-					cout << "No songs matching release month" <<endl <<endl;
+					H1.printResults(cout, H1.search(S1), userSearch);
+					cout << "Would you like to see full song information? y/n ";
+					cin >> userLetter;
+					if(userLetter == 'y')
+					{
+						cout << endl <<endl;
+						H1.getFullResults(cout, H1.search(S1), userSearch);
+					}
 				}
-				found = 0;
+			}
+			else if(userSearchType == 2)//search by keywords
+			{
+				cout << "Enter the key word you would like to search for: ";
+				cin >> userSearch;
+				WI.setKey(userSearch);
+				if(HM.get(WI) != -1)
+				{
+					//HM.insert(counter, WI);
+					cout << "Songs containing the word " << userSearch << ":" << endl;
+					H2.printBucket(cout, HM.get(WI));
+					cout << endl;
+				}
+				else
+				{
+					cout << "error finding word" <<endl;
+				}
+			}
+			else
+			{
+				cout << "Invalid choice, returning to main menu." <<endl;
 			}
 		}
-		while(!found)
-		{
-		cout << "Enter the title of the song you would like more information on or enter q to return to the main menu: ";
-		getline(cin, userinput);
-		cout << endl;
-		if(userinput == "q")
-		{
-			userChoice = 0;
-			userinput = " ";
-			break;
-		}
-		H1.getFullResults(cout, index, userinput, found);
-		if(!found)
-		{
-			cout << "Please enter a valid title from the search results" <<endl;
-		}
-		}
-	}
-	else if(userChoice == 2)
-	{
-		cout << "Enter the term you would like to search all songs for: ";
-		getline(cin, userinput);
-		//this is where the inverted index search function would be
-	}
-	else if(userChoice == 3)
-	{
-		cout << "1) Add new song\n2)Delete existing song\n3)Edit existing song\n\n";
-		cin >> userChoice;
-		if(userChoice == 1)
+		else if(userChoice == 2)//Add a new song
 		{
 			char confirm;
-			string newTitle;
-			string newAlbum;
-			string newDate;//this one requires an sstream function to pick apart the fields
-			string newYear;
-			string newMonth;
-			string newDay;
-			string lyrics;
-			string onChart;
-			string length;
-			string views;
-			string fulllyrics;
-			cout << "Please fill in as many fields as possible. If you do not know one of the fields, please leave it blank." <<endl;
+			char confirm2;
+			int userstuff;
+			//char confirm2;
+			string newTitle = "Empty";
+			string newAlbum = "Empty";
+			string newDate = "Empty";//this one requires an sstream function to pick apart the fields
+			string newYear = "Empty";
+			string newMonth = "Empty";
+			string newDay = "Empty";
+			string lyrics = "Empty";
+			string onChart = "Empty";
+			string length = "Empty";
+			string views = "Empty";
+			cout <<endl << "Please fill in as many fields as possible. If you do not know one of the fields, please leave it blank." <<endl;
 			cout << "Enter the new songs title: ";
 			getline(cin, newTitle);
-			cin.ignore();
 			cout <<endl << "Enter the new songs album: ";
 			getline(cin, newAlbum);
-			cin.ignore();
-			cout <<endl << "Enter the new songs release date: ";
+			cout <<endl << "Enter the new songs release date in format dd/mm/yyyy: ";
 			getline(cin, newDate);
-			cin.ignore();
-			//function call here to pick apart the date and assign the year month and day
-			cout << endl << "Enter the new songs lyrics: " <<endl;
-			while(getline(cin, lyrics))
-			{
-				fulllyrics += lyrics;
-				fulllyrics.push_back('\n');
-			}
-			cin.ignore();
+			cout <<endl << "Enter the new songs lyrics: ";
+			getline(cin, lyrics);
 			cout <<endl << "Enter true if the song was on chart or false if it was not: "; //i dont know what chart so someone fix that
 			cin >> onChart;
 			cout << endl <<"Enter the length of the song in format mm:ss : ";
@@ -170,138 +126,144 @@ int main()
 			cin >> views;
 			do
 			{
-				cout <<endl <<endl <<"Are these field correct? y/n " <<endl;
+				cout <<endl <<endl;
 				cout << "Title: " << newTitle <<endl;
 				cout << "Album: " << newAlbum <<endl;
 				cout << "Release Data: " << newDate <<endl;
 				cout << "On Chart: " << onChart <<endl;
 				cout << "Length: " << length <<endl;
-				cout << "Youtube Views: " << views << endl;
+				cout << "YouTube Views: " << views << endl;
+				cout <<"Are these field correct? y/n ";
 				cin >> confirm;
-				while(confirm == 'n')
+				if(confirm == 'n')
 				{
-					//put a menu here asking which field the user wants to change then change the field
+					cout << "1) Title\n2) Album\n3) ReleaseDate\n4) On Chart\n5) Length\n6) YouTube Views\n\n";
+					cout << "Enter the number of the field you would like to edit: ";
+					cin >> userstuff;
+					if(userstuff == 1)
+					{
+						cout << "\nEnter the title of the song: ";
+						getline(cin, newTitle);
+					}
+					else if(userstuff == 2)
+					{
+						cout << "\nEnter the songs album: ";
+						getline(cin, newAlbum);
+					}
+					else if(userstuff == 3)
+					{
+						cout << "\nEnter the songs release date in format mm/dd/yyyy: ";
+						getline(cin, newDate);
+					}
+					else if(userstuff == 4)
+					{
+						cout << "\nEnter true if the song was on chart or false if it was not: ";
+						cin >> onChart;
+					}
+					else if(userstuff == 5)
+					{
+						cout <<"\nEnter the length of the song in format mm:ss : ";
+						cin >> length;
+					}
+					else if(userstuff == 6)
+					{
+						cout << "\nEnter the amount of views the song has on youtube: ";
+						cin >> views;
+					}
 				}
 			}while(confirm != 'y');
-			//this is where the write to file function would be which would take all those fields as parameters;
+			cout << "Would you like to view the inputed lyrics? y/n ";
+			cin >> confirm2;
+			while(confirm2 == 'y')
+			{
+				if(confirm2 == 'y')
+				{
+					cout << lyrics <<endl;
+					cout << "Are these lyrics correct? y/n ";
+					cin >> confirm2;
+					cin.ignore();
+					if(confirm2 == 'n')
+					{
+						cout << "Enter the songs lyrics: ";
+						getline(cin, lyrics);
+					}
+					else if(confirm2 == 'y')
+					{
+						break;
+					}
+				}
+			}
+			newDay = newDate.substr(0, 2);
+			newMonth = newDate.substr(3, 2);
+			newYear = newDate.substr(6, 4);
+
+			Song S(newTitle, newAlbum, newYear, newMonth, newDay, lyrics, onChart, length, views);
+			int views2;
+			stringstream ss3(views);
+			ss3 >> views2;
+			totalViews += views2;
+			H1.insert(S);
+			B1.insert(S);
+			H2.insert(S, counter, HM);
+			cout << S.getName() << " successfully added to database." <<endl;
 		}
-		else if(userChoice == 2)
+		else if(userChoice == 3)//delete a song
 		{
 			char confirm;
-			int userchoice3;
-			int userChoice2;
-			string userinput2;
-			cout << "Choose how you would like to search for a song to delete: " <<endl <<"1) Search by field\n2) Search by keyword\n";
-			cin >> userchoice3;
-			if(userchoice3 == 1)
+			while(confirm != 'y' && confirm != 'q')
 			{
-				// search menu
-						cout << "1) Search by Title\n2) Search by Album\n3) Search by Release Date\n";
-						cout << "\n\nEnter the number of your choice: ";
-						//*INPUT INT*
-						cin >> userChoice2;
-						if(userChoice2 == 1)// search screen (be sure to adjust these for each input type if necessary)
-						{
-							cout <<endl << "Enter the song title: ";
-							cin.ignore();
-							getline(cin, userinput2);
-							readIn(inputFile, 1, H1);
-							index = H1.hash(userinput2);
-							H1.printResults(cout, index, userinput2, 1, found);
-							if(!found)
-							{
-								cout << "No songs matching Title" <<endl <<endl;
-							}
-							found = 0;
-						}
-						else if(userChoice2 == 2)
-						{
-							cout << "Enter the songs Album: ";
-							getline(cin, userinput2);
-							readIn(inputFile, 2 , H1);
-							index = H1.hash(userinput2);
-							H1.printResults(cout, index, userinput2, 2, found);
-							if(!found)
-							{
-								cout << "No songs matching Album" <<endl <<endl;
-							}
-							found = 0;
-						}
-						else if(userChoice2 == 3)
-						{
-							cout << "1) Search by release year\n2) Search by release month\n";
-							cout << "Enter the number of your choice: ";
-							cin >> userChoice2;
-							if(userChoice2 == 1)
-							{
-								cout << "Enter the songs release year: ";
-								cin >> userinput2;
-								readIn(inputFile, 3, H1);
-								H1.hash(userinput2);
-								H1.printResults(cout, index, userinput2, 3, found);
-								if(!found)
-								{
-									cout << "No songs matching Year" <<endl <<endl;
-								}
-								found = 0;
-							}
-							else if(userChoice2 == 2)
-							{
-								cout << "Enter the songs release month: ";
-								cin >> userinput2;
-								readIn(inputFile, 4, H1);
-								index = H1.hash(userinput2);
-								H1.printResults(cout, index, userinput2, 4, found);
-								if(!found)
-								{
-									cout << "No songs matching release month" <<endl <<endl;
-								}
-								found = 0;
-							}
-						}
-						while(!found)
-						{
-						cout << "Enter the title of the song you would like more information on or enter q to return to the main menu: ";
-						getline(cin, userinput2);
-						cout << endl;
-						if(userinput == "q")
-						{
-							userChoice2 = 0;
-							userinput2 = " ";
-							break;
-						}
-						H1.getFullResults(cout, index, userinput2, found);
-						if(!found)
-						{
-							cout << "Please enter a valid title from the search results" <<endl;
-						}
-						}
-						cout << "Is this the song you wish to delete? y/n ";
-						cin >> confirm;
-						if(confirm == 'y')
-						{
-							//this is also the function to save to the file at the end
-							//create a song object here putting the userinput as the song title and pass it to delete
-							//remove the data from the node
-							//write hashtable to file
-							cout << "Don't mess with this one too much without having backups because the trunc function deletes the entire songs.txt content";
-							ofstream outputFile;
-							outputFile.open("Songs.txt", ofstream::out | ofstream::trunc);
-							outputFile.close();
-							outputFile.open("Songs.txt");
-							//this is where the function should write the hash table to the file
-							for(int i = 0; i < 30; i++)
-							{
-								H1.printBucket(outputFile, i);
-							}
-							outputFile.close();
-						}
+				cout << "Enter the title of the song you wish to delete or q to return to main menu: ";
+				getline(cin, userSearch);
+				Song S1;
+				S1.setName(userSearch);
+				if(userSearch == "q")
+				{
+					break;
+				}
+				if(H1.search(S1) == -1)//if its not found
+				{
+					cout << "Song is not in database." <<endl;
+				}
+				else//if it is found
+				{
+					H1.search(S1);
+					cout << S1 << endl;
+					//H1.printResults(cout, H1.search(S1), userSearch);
+					cout << "Is this the song you wish to remove? y/n ";
+					cin >> confirm;
+					if(confirm == 'y')
+					{
+						cout << H1.search(S1) << endl;
+						cout << "removing from H1 " <<endl;
+						H1.remove(S1);
+						cout << "removing from B1 " <<endl;
+						B1.remove(S1);
+						cout << "removing from H2 " <<endl;
+						H2.remove(S1, HM);
+						system("pause");
+					}
+					cin.ignore();
+				}
 			}
 		}
-	}
-
-
-
-	H1.~HashTable();
+		else if(userChoice == 4)//List Songs by title
+		{
+			B1.inOrderPrint(cout);
+		}
+		else if(userChoice == 5)//data stats
+		{
+			cout << "Size of Database: " << B1.getSize() <<endl;
+			cout << "Total amount of Youtube Views: " << totalViews << endl;
+		}
+		else if(userChoice == 6)//quit
+		{
+			cout << "Ending program " ;
+			return 0;
+		}
+		else
+		{
+			cout << "Please enter a valid option." <<endl;
+		}
 	}
 }
+
