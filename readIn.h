@@ -10,15 +10,20 @@
 
 #include <iostream>
 #include "HashTable.h"
+#include "HashMap.h"
+#include "wordID.h"
 #include "Song.h"
 #include "BST.h"
 #include <fstream>
+#include <sstream>
 #include <string>
 #include <ctype.h>
 using namespace std;
 
-void readIn(ifstream &inputfile, int searchType, HashTable &HT) {
-	//HashTable HT;
+void readIn(ifstream &inputfile, HashTable &HT, BST<Song> &B1, HashMap &HM, HashTable2 &HII, int &counter, int &totalViews) {
+	BST<Song> bstobj;
+	int count = 0;
+	int viewcount;
 	char delimiter(';');
 	Song obj1;
 	string songName;
@@ -33,34 +38,16 @@ void readIn(ifstream &inputfile, int searchType, HashTable &HT) {
 	  string length;
 	  string views;
 	  //int keyHits;
-	  int counter = 0;
 	string temp;
-	//inputfile.open("Songs.txt");
-	/*if(inputfile)    //just for me~
-		{
-			cout <<"successful open";
-		}
-	else
-	{
-		cout << "error opening" <<endl;
-	}*/
-
-	/*while(getline(inputfile, str, ';'))
-	{
-		cout << "hi" <<endl;
-		cout << str;
-	}*/
-
-
 
 	while(!inputfile.eof())
 	{
-		counter++;
+		count++;
 		getline(inputfile, songName, delimiter);
 		//cout << "one" <<endl;
+		getline(inputfile, songAlbum, delimiter);
 		//cout <<author;
 		//cout << "two" <<endl;
-		getline(inputfile, songAlbum, delimiter);
 		getline(inputfile, year, delimiter);
 		//cout << "three" <<endl;
 		getline(inputfile, month, delimiter);
@@ -76,33 +63,40 @@ void readIn(ifstream &inputfile, int searchType, HashTable &HT) {
 		 getline(inputfile, length, delimiter);
 		//cout << "nine"<<endl;
 		getline(inputfile, views, delimiter);
-		getline(inputfile, studio, delimiter);
-		inputfile.ignore();
+		stringstream ssone(views);
+		ssone >> viewcount;
+		totalViews += viewcount;
 		//cout << "ten" <<endl;
+
+		//getline(inputfile, studio, delimiter);
+		inputfile.ignore();
 		//inputfile >>keyHits;
 		//inputfile.ignore();
 		//inputfile.ignore();
 
 		Song S1(songName,songAlbum, year, month, day, lyrics, onChart, length, views); //can call constructor instead of sets field with get
-		/*cout << "Song  " << counter <<endl;
-		cout << "Title: " <<S1.getName() <<endl;
-		cout <<"Album: " <<S1.getAlbum() <<endl;
-		cout <<"Date: "<< S1.getDate() <<endl;
-		//cout << S1.getLyrics() <<endl;
-		cout <<"OnChart: " <<S1.isOnChart() <<endl;
-		cout <<"Length: " << S1.getLength() <<endl;
-		cout <<"Views: " << S1.getViews() <<endl;*/
-		HT.insert(S1, searchType);
+
+
+		HT.insert(S1);
+
+		B1.insert(S1);
+
+		HII.insert(S1, counter, HM);
+
 
 		//bstobj.insert(S1);
+
+	/*cout << S1.getName()<<endl;
+	cout << S1.getAlbum()<<endl;
+	cout << S1.getDate()<<endl;
+	cout << S1.isOnChart()<<endl;
+	cout << S1.getLength()<<endl;
+	cout << S1.getLyrics()<<endl;
+	cout << S1.getViews()<<endl <<endl;*/
+
+
 	}
-	//cout << counter << " songs read in." <<endl;
-	/*for(int i = 0; i < 30; i++)
-	{
-		cout << "Index " << i <<endl;
-		HT.printBucket(cout, i);
-		cout << endl;
-	}*/
+	//cout << count << " songs read in." <<endl;
 }
 
 

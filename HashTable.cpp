@@ -1,3 +1,10 @@
+/*
+ * HashTable.cpp
+ *
+ *  Created on: Nov 18, 2017
+ *      Author: Kyle
+ */
+
 #include "HashTable.h"
 
 #include<iostream>
@@ -15,7 +22,7 @@ HashTable::HashTable() //constructor
 */
 }
 
-HashTable::~HashTable() //destructor
+HashTable::~HashTable() //constructor
 {
 
 
@@ -38,47 +45,14 @@ int HashTable::countBucket(int index) const
 	return Table[index].getSize();
 }
 
-int HashTable::search(Song S, int searchType) const
+int HashTable::search(Song &b)
 {
-	string field;
-	if(searchType == 1)
-	{
-		field = S.getName();
-	}
-	else if(searchType == 2)
-	{
-		field = S.getAlbum();
-	}
-		else if(searchType == 3)
-	{
-		field = S.getYear();
-	}
-	else if(searchType == 4)
-	{
-		field == S.getMonth();
-	}
-	else if(searchType == 5)
-	{
-		field = S.getDay();
-	}
-	else if(searchType == 6)
-	{
-		field == S.isOnChart();
-	}
-	else if(searchType == 7)
-	{
-		field = S.getLength();
-	}
-	else if(searchType == 8)
-	{
-		field = S.getViews();
-	}
-	int index = hash(field);
-	if(Table[index].search(S) == false)
+	int index = hash(b.getName());
+	if(Table[index].search(b) == false)
 	{
 		return -1;
 	}
-	else if(Table[index].search(S) == true)
+	else if(Table[index].search(b) == true)
 	{
 		return index;
 	}
@@ -88,59 +62,30 @@ int HashTable::search(Song S, int searchType) const
 	}
 }
 
-void HashTable::insert(Song S, int searchType)
+void HashTable::insert(Song b)
 {
-	string field;
-	if(searchType == 1)
-	{
-		field = S.getName();
-	}
-		else if(searchType == 2)
-	{
-		field = S.getAlbum();
-	}
-		else if(searchType == 3)
-	{
-		field = S.getYear();
-	}
-	else if(searchType == 4)
-	{
-		field = S.getMonth();
-	}
-	else if(searchType == 5)
-	{
-		field = S.getDay();
-	}
-	else if(searchType == 6)
-	{
-		field = S.isOnChart();
-	}
-	else if(searchType == 7)
-	{
-		field = S.getLength();
-	}
-	else if(searchType == 8)
-	{
-		field = S.getViews();
-	}
-	int index = hash(field);
-	Table[index].insert(S);
+	int index = hash(b.getName());
+	Table[index].insert(b);
 
 }
 
-void HashTable::remove(Song S)
+void HashTable::remove(Song b)
 {
-	int index = hash(S.getName());
-
-		bool found = Table[index].search(S);
+	int index = hash(b.getName());
+	Song A;
+		bool found = Table[index].search(b);
 
 		if(found)
 		{
-			Table[index].remove(S);
+			//Table[index].inOrderPrint(cout);
+			//cout << endl;
+			Table[index].remove(b);
+			//Table[index].inOrderPrint(cout);
+			//cout << endl;
 		}
 		else
 		{
-			cout << "Song is not there";
+			cout << "the song is not there";
 		}
 }
 
@@ -153,26 +98,24 @@ void HashTable::printTable(ostream &out) const
 {
 	for(int i = 0; i < SIZE; i++)
 	{
-		//Everything commented out here needs to be modified for the song class
-		Song S = Table[i].getRoot();
-		//out << "Books in Catalouge" <<endl <<endl;
-		//out << "Group: " << i+1 << endl;
-		cout << "Index " << i <<": ";
-		out << S.getName() <<endl;
-		//out << "$"  << B.get_price() <<endl;
-		//out << "ISBN: " << B.get_isbn() <<endl;
+		Song B = Table[i].getRoot();
+		out << "Songs in Catalouge" <<endl <<endl;
+		out << "Group: " << i+1 << endl;
+		out << B.getName() << endl;
+		out << B.getAlbum();
+		out << B.getDate();
 		//out << "+ " << Table[i].getSize()-1 << " many more similar books" << endl <<endl;
 	}
 }
 
-void HashTable::printResults(ostream &out, int index, string search, int searchType, int& found)
+void HashTable::printResults(ostream &out, int index, string search)
 {
-	Table[index].results(search, searchType, out, found);
+	Table[index].results(search, out);
 }
 
-void HashTable::getFullResults(ostream &out, int index, string search, int& found)
+void HashTable::getFullResults(ostream &out, int index, string search)
 {
-	Table[index].getFullResults(search, out, found);
+	Table[index].getFullResults(search, out);
 }
 
 

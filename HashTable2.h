@@ -5,23 +5,25 @@
  *      Author: Maya & Kyle
  */
 
-#ifndef HASHTABLE_H_
-#define HASHTABLE_H_
+#ifndef HASHTABLE_H2_
+#define HASHTABLE_H2_
 
 #include <string>
 
 #include "Song.h"
 #include "BST.h"
+#include "wordID.h"
+#include "HashMap.h"
 using namespace std;
 
-class HashTable {
+class HashTable2 {
 public:
     /**Constructors*/
 
-    HashTable();
+    HashTable2();
     //constructor
 
-    ~HashTable();
+    ~HashTable2();
     //destructor
 
 
@@ -39,19 +41,19 @@ public:
     //returns the count
     //pre: 0<= index < SIZE
 
-    int search(Song &b);
+    int search(Song b);
     //Searches for b in the table
     //returns the index at which b is located
     //returns -1 if b is not in the table
 
     /**Manipulation Procedures*/
 
-    void insert(Song b);
+    void insert(Song b, int& counter, HashMap &HM);
     //inserts a new book into the table
     //calls the hash function on the key to determine
     //the correct bucket
 
-    void remove(Song b);
+    void remove(Song b, HashMap &HM);
     //removes b from the table
     //calls the hash function on the key to determine
     //the correct bucket
@@ -88,11 +90,12 @@ public:
     void printResults(ostream& out, int index, string search);
 
     void getFullResults(ostream& out, int index, string search);
+
 private:
-    static const int SIZE = 10;
+    static const int SIZE = 10000;
     BST<Song> Table[SIZE];
 };
 
 
 
-#endif /* HASHTABLE_H_ */
+#endif /* HASHTABLE_H2_ */

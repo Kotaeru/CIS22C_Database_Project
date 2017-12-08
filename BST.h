@@ -16,10 +16,10 @@
 #define BST_H_
 
 #include <cstddef>
+#include <iostream>
 #include <string>
 #include <assert.h>
 #include "Song.h"
-#include<iostream>
 
 using namespace std;
 template<typename bstdata>
@@ -64,7 +64,7 @@ private:
     //private helper function for the destructor
     //recursively frees the memory in the BST
 
-    bool searchNode(Node* root, bstdata data)const;
+    bool searchNode(Node* root, bstdata &data);
     //recursive helper function to search
     //returns whether the value is found in the tree
 
@@ -76,7 +76,7 @@ private:
     //recursive helper function to maximum
     //returns the maximum value in the tree
 
-    Node* deleteNode(Node* root, bstdata data);
+    Node* deleteNode(Node* root, bstdata data, Node* &topRoot);
     //recursive helper function to remove
     //removes data from the tree
 
@@ -89,8 +89,9 @@ private:
     //recursive helper function to the height function
     //returns the height of the tree
 
-    void getResults(Node* root, string usersearch, int searchtype, ostream& out, int& found);
-    //checks the BST at a index and pulls all the nodes that match into a results BST
+    void getResults(Node* root, string usersearch, ostream& out);
+
+    void fullResults(string usersearch, ostream& out, Node* root);
 
 public:
 
@@ -128,7 +129,7 @@ public:
     int getHeight() const;
     //returns the height of the tree
 
-    bool search(bstdata data) const;
+    bool search(bstdata &data);
     //returns whether the data is found in the tree
     //pre: !isEmpty()
 
@@ -156,13 +157,13 @@ public:
     //calls the postOrderPrint function to print out the values
     //stored in the BST
 
-    void results(string userSearch, int searchtype, ostream& out, int& found);
-    //wrapper function for getResults
-    //stores all results in a new BST
+    void results(string userSearch, ostream& out);
 
-    void fullResults(string usersearch, ostream& out, Node* root, int& found);
+    void getFullResults(string search, ostream& out);
 
-    void getFullResults(string search, ostream& out, int& found);
+    void OrderPrint(ostream& out);
+
+    void OrderPrints(ostream& out, Node* root, int &n);
 };
 
 
@@ -209,7 +210,14 @@ template<typename bstdata>
 void BST<bstdata>:: insertNode(Node* root, bstdata data)//private version
 	{
 		Node* N = new Node(data);// IS THIS OK!>!?!?!? to not pass in root
-		if(root->data>data)
+		if(root==NULL)
+		{root=N;}
+		if(root->data == data)//base case b/c we don't want duplicates
+		{
+			//cout << "song is already in index" <<endl;
+			return;
+		}
+		else if(root->data>data)
 			{
 				if(root->leftchild==NULL)
 					{root->leftchild=N;}
@@ -243,21 +251,14 @@ void BST<bstdata>::insert(bstdata data) //wrapper
 template<typename bstdata>
 void  BST<bstdata>:: inOrderPrint(ostream& out, Node* root) const //private
 	{
-		/*if(root->data == NULL)
-		{
-			out << "Null thing"<<endl;
+		if(root==NULL)
 			return;
-		}*/
-		if(root == NULL)
-		{
-			return;
-		}
-		else
-		{
-			inOrderPrint(out, root->leftchild);
-			out << root->data;
-			inOrderPrint(out,root->rightchild);
-		}
+		if(root!=NULL)
+			{
+				inOrderPrint(out, root->leftchild);
+				out << root->data;
+				inOrderPrint(out,root->rightchild);
+			}
 	}
 
 
@@ -339,35 +340,15 @@ void  BST<bstdata>:: freeNode(Node* root) //private helper of destructor
 	}
 
 template<typename bstdata>
-bool BST<bstdata>::searchNode(Node* root, bstdata data)const //private helper of search(recursive)
+bool BST<bstdata>::searchNode(Node* root, bstdata &data) //private helper of search(recursive)
 	{
-		//cout << root->data << endl;
-//		if(root->data == data)
-//			return true;
-//
-//		if(root->data< data)
-//			{
-//				if(root->leftchild==NULL)
-//					{
-//					return false;}
-//				else
-//					{return searchNode(root->leftchild,data);}
-//			}
-//		else//root->data>data
-//			{
-//				if(root->rightchild==NULL)
-//					{cout << "test";
-//					return false;}
-//				else
-//					{return searchNode(root->rightchild,data);}
-//			}
 		if(root==NULL)
 		{
-			cout << "Null end" <<endl;
 			return false;
 		}
 		else if(data == root -> data){
-			cout << "this is good"<<endl;
+			//cout << "root " << root <<endl;
+			data = root->data;
 			return true;
 		}
 		else if(data<root->data)
@@ -378,10 +359,11 @@ bool BST<bstdata>::searchNode(Node* root, bstdata data)const //private helper of
 		{
 			return searchNode(root->rightchild,data); //only changes if delete is actually used
 		}
+		return false;
 	}
 
 template<typename bstdata>
-bool BST<bstdata>::search(bstdata data) const//wrapper
+bool BST<bstdata>::search(bstdata &data)//wrapper
 	{
 		return searchNode(root, data);
 	}
@@ -414,35 +396,98 @@ bstdata BST<bstdata>::maximum() const //wrapper
 	}
 
 template<typename bstdata>
-typename BST<bstdata>::Node* BST<bstdata>::deleteNode(Node* root, bstdata data)
+typename BST<bstdata>::Node* BST<bstdata>::deleteNode(Node* root, bstdata data, Node* &topRoot)//private helper of remove
 
 	{
-
+	//cout << "in deleteNode" <<endl;
+	if(topRoot == NULL)
+	{
+		//cout << "topRoot NULL"<<endl;
+		return topRoot;
+	}
+		if(data == topRoot->data)
+		{
+			//cout << "isTopRoot" <<endl;
+			if(topRoot->leftchild == NULL && topRoot->rightchild == NULL)//no children case
+			{
+				//cout << "if" <<endl;
+				topRoot = NULL;
+				return topRoot;
+			}
+			else if(topRoot->leftchild != NULL && topRoot->rightchild == NULL)//left child only case
+			{
+				//cout << "else if one" <<endl;
+				Node * temp;
+				temp = topRoot;
+				topRoot = topRoot->leftchild;
+				delete temp;
+				return topRoot;
+			}
+			else if(topRoot->leftchild == NULL && topRoot->rightchild != NULL)
+			{
+				//cout << "else if two" <<endl;
+				Node * temp;
+				temp = topRoot;
+				topRoot = temp->rightchild;
+				//cout << "root to delete "<< temp <<endl;
+				return topRoot;
+			}
+			else if(topRoot->leftchild != NULL && topRoot->rightchild != NULL)
+			{
+				//cout << "else if three" <<endl;
+				if(topRoot->rightchild->leftchild!=NULL)
+				{
+					Node* leftCurrent;
+					Node* leftCurrentPred;
+					leftCurrentPred=topRoot->rightchild;
+					leftCurrent=(topRoot->rightchild)->leftchild;
+					while(leftCurrent->leftchild != nullptr)
+					{
+						leftCurrentPred=leftCurrent;
+						leftCurrent=leftCurrent->leftchild;
+					}
+					topRoot->data=leftCurrent->data;
+					delete leftCurrent;
+					leftCurrentPred->leftchild=nullptr;
+					}
+					else
+					{
+					Node* temp=topRoot->rightchild;
+					topRoot->data=temp->data;
+					topRoot->rightchild=temp->rightchild;
+					delete temp;
+					}
+			}
+		}
+		//cout << "isNotTop Root"<<endl;
 		if(root==NULL)
 		{
-
+			//cout << "NULL ROOT" <<endl;
 			return root; //root is now null, we return null
-
 		}
 		else if(data<root->data)
 			{
-			root->leftchild=deleteNode(root->leftchild,data);
+			root->leftchild=deleteNode(root->leftchild,data, topRoot);
 			}
 		else if(data>root->data)
 			{
-			root->rightchild=deleteNode(root->rightchild,data); //only changes if delete is actually used
+			root->rightchild=deleteNode(root->rightchild,data, topRoot); //only changes if delete is actually used
 			}
-		else if(root->data==data)
+		else if(data == root->data)
 			{
-
 				if(root->leftchild==NULL && root->rightchild==NULL)
-					{	delete root;
-						root=NULL;
+					{
+						//cout << "no children case" <<endl;
+						//delete root;
+						//cout << "root should be deleted" <<endl;
+						root = NULL;
+						delete root;
 						return root;
 						//cout <<"hi";
 					}
 				else if(root->leftchild!=NULL && root->rightchild==NULL)//left, no right
 					{
+					//cout << "left child only" <<endl;
 						Node* temp = root;
 						root=root->leftchild;
 						delete temp;
@@ -450,6 +495,7 @@ typename BST<bstdata>::Node* BST<bstdata>::deleteNode(Node* root, bstdata data)
 					}
 				else if(root->rightchild!=NULL && root->leftchild==NULL)
 					{
+					//cout << "right child only" <<endl;
 						Node* temp = root;
 						root=root->rightchild;
 						delete temp;
@@ -460,7 +506,7 @@ typename BST<bstdata>::Node* BST<bstdata>::deleteNode(Node* root, bstdata data)
 					}
 				else
 					{
-
+					//cout << "two children " <<endl;
 							if(root->rightchild->leftchild!=NULL)
 							{
 								Node* leftCurrent;
@@ -486,14 +532,16 @@ typename BST<bstdata>::Node* BST<bstdata>::deleteNode(Node* root, bstdata data)
 
 					}
 			}
-
-			return root;
+		//cout << "Returning Root" <<endl;
+		return root;
 	}
 
 template<typename bstdata>
-void BST<bstdata>::remove(bstdata data)
+void BST<bstdata>::remove(bstdata data)//wrapper
 	{
-		deleteNode(root,data);
+	//cout << "Made it to remove" <<endl;
+	Node* temp = root;
+		deleteNode(temp,data, root);
 	}
 
 template<typename bstdata>
@@ -553,72 +601,35 @@ bool BST<bstdata>:: isEmpty() const
 template<typename bstdata>
 bstdata BST<bstdata>::getRoot() const
 	{
-		Song B1;
-		if(root == NULL)
-		{
-			return B1;
-		}
+		assert(root!=NULL);
 		return root->data;
 	}
 
 template<typename bstdata>
-void BST<bstdata>::getResults(Node* root, string usersearch, int searchType, ostream& out, int& found)
+void BST<bstdata>::getResults(Node* root, string usersearch, ostream& out)
 	{
 		if(root == NULL)
 		{
 			return;
 		}
-		Song S1 = root->data;
-		string field;
-		if(searchType == 1)
-		{
-			field = S1.getName();
-		}
-		else if(searchType == 2)
-		{
-			field = S1.getAlbum();
-		}
-		else if(searchType == 3)
-		{
-			field = S1.getYear();
-		}
-		else if(searchType == 4)
-		{
-			field == S1.getMonth();
-		}
-		else if(searchType == 5)
-		{
-			field = S1.getDay();
-		}
-		else if(searchType == 6)
-		{
-			field == S1.isOnChart();
-		}
-		else if(searchType == 7)
-		{
-			field = S1.getLength();
-		}
-		else if(searchType == 8)
-		{
-			field = S1.getViews();
-		}
-		getResults(root->leftchild, usersearch, searchType, out, found);
-		if(usersearch == field)
+		Song S1;
+		S1.setName(usersearch);
+		getResults(root->leftchild, usersearch, out);
+		if(S1 == root->data)
 		{
 		out << root->data;
-		found = 1;
 		}
-		getResults(root->rightchild, usersearch, searchType, out, found);
+		getResults(root->rightchild, usersearch, out);
 	}
 
 template<typename bstdata>
-void BST<bstdata>::results(string userSearch, int searchtype, ostream& out, int& found)
+void BST<bstdata>::results(string userSearch, ostream& out)
 {
-	getResults(root, userSearch, searchtype, out, found);
+	getResults(root, userSearch, out);
 }
 
 template<typename bstdata>
-void BST<bstdata>::fullResults(string usersearch, ostream& out, Node* root, int& found)
+void BST<bstdata>::fullResults(string usersearch, ostream& out, Node* root)
 {
 	if(root == NULL)
 	{
@@ -626,7 +637,7 @@ void BST<bstdata>::fullResults(string usersearch, ostream& out, Node* root, int&
 	}
 	Song B1;
 	B1 = root->data;
-	fullResults(usersearch, out, root->leftchild, found);
+	fullResults(usersearch, out, root->leftchild);
 	if(B1.getName() == usersearch)
 	{
 		out <<"Title: " << B1.getName() <<endl;
@@ -636,19 +647,52 @@ void BST<bstdata>::fullResults(string usersearch, ostream& out, Node* root, int&
 		out << "Length: " << B1.getLength() <<endl;
 		out << "Youtube Views: " << B1.getViews() <<endl;
 		out << "Lyrics: " << B1.getLyrics()<<endl <<endl;
-		found = 1;
 		return;
 	}
-	fullResults(usersearch, out, root->rightchild, found);
+	fullResults(usersearch, out, root->rightchild);
 }
 
 template<typename bstdata>
-void BST<bstdata>::getFullResults(string search, ostream& out, int& found)
+void BST<bstdata>::getFullResults(string search, ostream& out)
 {
-	fullResults(search, out, root, found);
+	fullResults(search, out, root);
 }
 
+template<typename bstdata>
+void BST<bstdata>::OrderPrint(ostream& out)
+{
+	cout << "OrderPrint" <<endl;
+	int n = 0;
+	OrderPrints(out, root, n);
+}
 
-
+template<typename bstdata>
+void BST<bstdata>::OrderPrints(ostream& out, Node* root, int &n)
+{
+	cout << "printing..." <<endl;
+	Song s1;
+	if(root == NULL)
+	{
+		return;
+	}
+	s1 = root->data;
+	OrderPrints(out, root->leftchild,n);
+	if(n > 0)
+	{
+		cout << n <<endl;
+		out << endl;
+	}
+	n++;
+	out << s1.getName() << ";" << s1.getAlbum() << ";" << s1.getYear() << ";" << s1.getMonth() << ";" << s1.getDay() << ";";
+	out << s1.getLyrics() << ";";
+	out << s1.isOnChart() << ";" << s1.getLength() << ";" << s1.getViews() << ";";
+	OrderPrints(out, root->rightchild, n);
+}
 
 #endif /* BST_H_ */
+
+
+
+//BST.cpp
+
+
