@@ -38,7 +38,7 @@ int main()
 	infile.open("Songs.txt");
 	readIn(infile, H1, B1, HM, H2, counter, totalViews);
 	infile.close();
-	cout << "Welcome!" <<endl;
+	cout << "Welcome! Please search for, add, or remove\nMichael Jackson songs from our database!" <<endl;
 	//H2.printBucket(cout, 0);
 	while(userChoice != 7)
 	{
