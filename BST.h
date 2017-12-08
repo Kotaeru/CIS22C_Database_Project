@@ -669,7 +669,7 @@ void BST<bstdata>::OrderPrint(ostream& out)
 template<typename bstdata>
 void BST<bstdata>::OrderPrints(ostream& out, Node* root, int &n)
 {
-	cout << "printing..." <<endl;
+	//cout << "printing..." <<endl;
 	Song s1;
 	if(root == NULL)
 	{

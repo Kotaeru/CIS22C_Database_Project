@@ -7,6 +7,7 @@
 
 
 #include<iostream>
+#include <cctype>
 #include<string>
 #include<fstream>
 #include "HashTable.h"
@@ -38,7 +39,7 @@ int main()
 	infile.open("Songs.txt");
 	readIn(infile, H1, B1, HM, H2, counter, totalViews);
 	infile.close();
-	cout << "Welcome! Please search for, add, or remove\nMichael Jackson songs from our database!" <<endl;
+	cout << "Welcome!" <<endl;
 	//H2.printBucket(cout, 0);
 	while(userChoice != 7)
 	{
@@ -80,14 +81,17 @@ int main()
 				WI.setKey(userSearch);
 				if(HM.get(WI) != -1)
 				{
+
+					{
 					//HM.insert(counter, WI);
 					cout << "Songs containing the word " << userSearch << ":" << endl;
 					H2.printBucket(cout, HM.get(WI));
 					cout << endl;
+					}
 				}
 				else
 				{
-					cout << "error finding word" <<endl;
+					cout << "No songs in database have word " << userSearch <<endl;
 				}
 			}
 			else
@@ -111,14 +115,14 @@ int main()
 			string onChart = "Empty";
 			string length = "Empty";
 			string views = "Empty";
-			cout <<endl << "Please fill in as many fields as possible. If you do not know one of the fields, please leave it blank." <<endl;
+			cout <<endl << "Please fill in as many fields as possible. If you do not know one of the fields, please enter the word Empty " <<endl;
 			cout << "Enter the new songs title: ";
 			getline(cin, newTitle);
 			cout <<endl << "Enter the new songs album: ";
 			getline(cin, newAlbum);
 			cout <<endl << "Enter the new songs release date in format dd/mm/yyyy: ";
 			getline(cin, newDate);
-			cout <<endl << "Enter the new songs lyrics: ";
+			cout <<endl << "Enter the new songs lyrics all on one line: ";
 			getline(cin, lyrics);
 			cout <<endl << "Enter true if the song was on chart or false if it was not: "; //i dont know what chart so someone fix that
 			cin >> onChart;
@@ -134,7 +138,7 @@ int main()
 				cout << "Release Data: " << newDate <<endl;
 				cout << "On Chart: " << onChart <<endl;
 				cout << "Length: " << length <<endl;
-				cout << "YouTube Views: " << views << endl;
+				cout << "YouTube Views: " << views << endl; //603551363
 				cout <<"Are these field correct? y/n ";
 				cin >> confirm;
 				if(confirm == 'n')
@@ -235,6 +239,10 @@ int main()
 					cin >> confirm;
 					if(confirm == 'y')
 					{
+						int subviews;
+						stringstream ss(S1.getViews());
+						ss >> subviews;
+						totalViews -= subviews;
 						//cout << H1.search(S1) << endl;
 						//cout << "removing from H1 " <<endl;
 						H1.remove(S1);
@@ -243,6 +251,7 @@ int main()
 						//cout << "removing from H2 " <<endl;
 						H2.remove(S1, HM);
 						//system("pause");
+						cout << endl;
 					}
 					cin.ignore();
 				}
@@ -251,6 +260,7 @@ int main()
 		else if(userChoice == 4)//List Songs by title
 		{
 			B1.inOrderPrint(cout);
+			cout <<endl;
 		}
 		else if(userChoice == 5)//data stats
 		{
@@ -282,7 +292,14 @@ int main()
 		}
 		else
 		{
-			cout << "Please enter a valid option." <<endl;
+			if (isalpha(userChoice))
+			{
+				cout << "Please enter numbers not letters\n";
+			}
+			else
+			{
+				cout << "Invalid input" << endl;
+			}
 		}
 	}
 }
