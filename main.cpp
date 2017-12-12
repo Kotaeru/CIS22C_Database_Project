@@ -40,9 +40,11 @@ int main()
 	readIn(infile, H1, B1, HM, H2, counter, totalViews);
 	infile.close();
 	cout << "Welcome!" <<endl;
+	cout << "Michael Jackson Song Search Engine" << endl;
 	//H2.printBucket(cout, 0);
 	while(userChoice != 7)
 	{
+		userChoice = 0;
 		cout << "1) Search\n2) Add a new song\n3) Delete a song\n4) List songs by title\n5) Data Statistics\n6) Write to file\n7) Quit\n\n";
 		cout << "Please enter the number of your choice: ";
 		cin >> userChoice;
@@ -215,9 +217,12 @@ int main()
 		}
 		else if(userChoice == 3)//delete a song
 		{
+			//cout << "In 3" << endl;
 			char confirm;
+			confirm = 'n';
 			while(confirm != 'y' && confirm != 'q')
 			{
+				//cout << "in loop" <<endl;
 				cout << "Enter the title of the song you wish to delete or q to return to main menu: ";
 				getline(cin, userSearch);
 				Song S1;
@@ -253,7 +258,6 @@ int main()
 						//system("pause");
 						cout << endl;
 					}
-					cin.ignore();
 				}
 			}
 		}

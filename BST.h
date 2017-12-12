@@ -661,7 +661,7 @@ void BST<bstdata>::getFullResults(string search, ostream& out)
 template<typename bstdata>
 void BST<bstdata>::OrderPrint(ostream& out)
 {
-	cout << "OrderPrint" <<endl;
+	//<< "OrderPrint" <<endl;
 	int n = 0;
 	OrderPrints(out, root, n);
 }
@@ -679,7 +679,7 @@ void BST<bstdata>::OrderPrints(ostream& out, Node* root, int &n)
 	OrderPrints(out, root->leftchild,n);
 	if(n > 0)
 	{
-		cout << n <<endl;
+		//cout << n <<endl;
 		out << endl;
 	}
 	n++;
